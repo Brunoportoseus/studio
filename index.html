@@ -76,11 +76,11 @@
 <section id="hero">
   <div class="hero-bg"></div>
 
-  <!-- Hero decorative photo background placeholder -->
-  <div style="position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,#1e3a5a 0%,#0c2240 50%,#0a1628 100%);opacity:.6;"></div>
+  <!-- Hero background image (managed via admin) -->
+  <div id="heroBgImg" style="position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,#1e3a5a 0%,#0c2240 50%,#0a1628 100%);opacity:.6;background-size:cover;background-position:center top;"></div>
   <!-- Elegant geometric accent -->
-  <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.15);"></div>
-  <div style="position:absolute;right:10%;top:50%;transform:translate(24px,-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.08);"></div>
+  <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.15);z-index:1;"></div>
+  <div style="position:absolute;right:10%;top:50%;transform:translate(24px,-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.08);z-index:1;"></div>
 
   <div class="container">
     <div class="hero-content">
@@ -284,6 +284,32 @@
         <span class="service-cta">Saber Mais / Agendar</span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     VITRINE DE FOTOS
+══════════════════════════════════════════ -->
+<section id="vitrine" class="section section-navy">
+  <div class="container">
+    <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:72px">
+      <div>
+        <span class="label">Nosso Trabalho</span>
+        <h2 class="section-title white">Vitrine de Transformações</h2>
+        <div class="divider" style="background:var(--gold)"></div>
+        <p class="section-desc white">Cada foto é uma história de confiança e arte.</p>
+      </div>
+      <a href="#contato" class="btn btn-outline" style="flex-shrink:0">Agendar Minha Avaliação</a>
+    </div>
+    <div id="vitrineGrid" class="vitrine-grid">
+      <!-- preenchido dinamicamente pelo script -->
+      <div class="vitrine-placeholder fade-up">
+        <div class="vitrine-ph-inner">
+          <span style="font-size:32px;color:rgba(184,150,90,.3)">✦</span>
+          <p style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:12px">Fotos em breve</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -770,6 +796,15 @@
     </div>
   </div>
 </footer>
+
+<!-- Vitrine Lightbox -->
+<div class="vitrine-lightbox" id="vitrineL" onclick="if(event.target===this)closeLightbox()">
+  <button class="vitrine-lb-close" onclick="closeLightbox()">✕</button>
+  <button class="vitrine-lb-nav vitrine-lb-prev" onclick="lbPrev()">&#8592;</button>
+  <img class="vitrine-lb-img" id="lbImg" src="" alt="">
+  <p class="vitrine-lb-cap" id="lbCap"></p>
+  <button class="vitrine-lb-nav vitrine-lb-next" onclick="lbNext()">&#8594;</button>
+</div>
 
 <!-- Floating WhatsApp -->
 <a href="https://wa.me/5541974016961?text=Olá%20Denise%2C%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita."

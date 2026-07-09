@@ -139,6 +139,83 @@ function submitMainForm(e) {
   window.open(`https://wa.me/5541974016961?text=${msg}`, '_blank');
 }
 
+// ── Site images (managed via admin, stored in localStorage) ─
+let vitrinePhotos = [];
+let lbIndex = 0;
+
+function loadSiteImages() {
+  try {
+    const cfg = JSON.parse(localStorage.getItem('dp_config') || '{}');
+
+    // Hero background image
+    const heroBg = document.getElementById('heroBgImg');
+    if (heroBg && cfg.heroImage) {
+      heroBg.style.backgroundImage = `url('${cfg.heroImage}')`;
+      heroBg.style.backgroundSize = 'cover';
+      heroBg.style.backgroundPosition = 'center top';
+      heroBg.style.opacity = '0.55';
+    }
+
+    // Vitrine grid
+    const grid = document.getElementById('vitrineGrid');
+    if (!grid) return;
+    vitrinePhotos = cfg.vitrinePhotos || [];
+
+    if (vitrinePhotos.length === 0) {
+      // show placeholder — already in HTML
+      return;
+    }
+
+    grid.innerHTML = vitrinePhotos.map((p, i) => `
+      <div class="vitrine-item fade-up" onclick="openLightbox(${i})" style="transition-delay:${(i % 4) * 0.06}s">
+        <img src="${p.url}" alt="${p.caption || 'Resultado Denise de Paula'}" loading="lazy">
+        <div class="vitrine-overlay">
+          <span class="vitrine-caption">${p.caption || ''}</span>
+        </div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  } catch(e) {}
+}
+
+// Lightbox
+function openLightbox(idx) {
+  if (!vitrinePhotos.length) return;
+  lbIndex = idx;
+  const lb = document.getElementById('vitrineL');
+  if (!lb) return;
+  renderLightbox();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  const lb = document.getElementById('vitrineL');
+  if (lb) lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbPrev() { lbIndex = (lbIndex - 1 + vitrinePhotos.length) % vitrinePhotos.length; renderLightbox(); }
+function lbNext() { lbIndex = (lbIndex + 1) % vitrinePhotos.length; renderLightbox(); }
+function renderLightbox() {
+  const p = vitrinePhotos[lbIndex];
+  if (!p) return;
+  const img = document.getElementById('lbImg');
+  const cap = document.getElementById('lbCap');
+  if (img) img.src = p.url;
+  if (cap) cap.textContent = p.caption || '';
+}
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('vitrineL');
+  if (!lb?.classList.contains('open')) return;
+  if (e.key === 'ArrowLeft')  lbPrev();
+  if (e.key === 'ArrowRight') lbNext();
+  if (e.key === 'Escape')     closeLightbox();
+});
+
+// Init on load
+loadSiteImages();
+
 // ── Smooth scroll for anchor links ─────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {

@@ -298,6 +298,9 @@
       </div>
       <div class="sidebar-section">
         <span class="sidebar-section-label">Site</span>
+        <button class="sidebar-link" onclick="showPage('images',this)">
+          <span class="sidebar-icon">🖼</span> Imagens
+        </button>
         <button class="sidebar-link" onclick="showPage('leads',this)">
           <span class="sidebar-icon">◎</span> Leads
         </button>
@@ -485,6 +488,76 @@
         </p>
       </div>
 
+      <!-- ── IMAGES ─── -->
+      <div id="page-images" class="page">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Gerenciar Imagens</h1>
+            <p class="page-subtitle">Altere a imagem do Hero e gerencie a Vitrine de Fotos da Home</p>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="editor-panel" style="margin-bottom:2px">
+          <h4>Imagem Principal — Hero</h4>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.8">
+            Cole a URL de uma imagem para usar como fundo da seção principal do site.<br>
+            Use links diretos de imagem (terminando em .jpg, .png, .webp) do Google Drive, Dropbox ou qualquer host.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end">
+            <div class="field" style="margin-bottom:0">
+              <label>URL da Imagem do Hero</label>
+              <input type="url" id="heroImgUrl" placeholder="https://exemplo.com/foto-denise.jpg">
+            </div>
+            <button class="btn btn-outline" onclick="previewHeroImg()" style="height:46px">Visualizar</button>
+          </div>
+          <div id="heroImgPreview" style="margin-top:20px;display:none">
+            <img id="heroPreviewEl" src="" alt="Preview"
+              style="max-height:280px;max-width:100%;object-fit:cover;border:1px solid var(--border)">
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <button class="btn btn-gold" onclick="saveHeroImg()">Salvar Imagem do Hero</button>
+            <button class="btn btn-outline" onclick="removeHeroImg()">Remover</button>
+          </div>
+        </div>
+
+        <!-- Vitrine -->
+        <div class="editor-panel" style="margin-top:2px">
+          <h4>Vitrine de Fotos — Home</h4>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;line-height:1.8">
+            Adicione fotos de resultados que aparecerão na vitrine da página inicial. Recomendado: fotos em formato retrato (3×4).
+          </p>
+
+          <!-- Add photo form -->
+          <div style="background:var(--cream);padding:24px 24px;margin-bottom:24px">
+            <p style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Adicionar Nova Foto</p>
+            <div style="display:grid;grid-template-columns:1fr 200px auto;gap:12px;align-items:end">
+              <div class="field" style="margin-bottom:0">
+                <label>URL da Foto</label>
+                <input type="url" id="newPhotoUrl" placeholder="https://exemplo.com/resultado.jpg">
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Legenda (opcional)</label>
+                <input type="text" id="newPhotoCaption" placeholder="Ex: Fio a Fio">
+              </div>
+              <button class="btn btn-gold" onclick="addVitrinePhoto()" style="height:46px">+ Adicionar</button>
+            </div>
+            <div id="newPhotoPreviewWrap" style="margin-top:14px;display:none">
+              <img id="newPhotoPreviewEl" src="" alt="" style="height:100px;object-fit:cover;border:1px solid var(--border)">
+            </div>
+            <button onclick="previewNewPhoto()" style="background:none;border:none;font-size:11px;color:var(--muted);cursor:pointer;margin-top:8px;padding:0;font-family:var(--font-s)">Pré-visualizar URL →</button>
+          </div>
+
+          <!-- Grid of existing photos -->
+          <div id="vitrineAdminGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:20px">
+            <!-- rendered by JS -->
+          </div>
+          <p id="vitrineEmptyMsg" style="font-size:12px;color:var(--muted);text-align:center;padding:40px 0">
+            Nenhuma foto adicionada ainda.
+          </p>
+        </div>
+      </div>
+
       <!-- ── SETTINGS ─── -->
       <div id="page-settings" class="page">
         <div class="page-header">
@@ -577,6 +650,123 @@ function getLeads() { return STORE.get('leads') || []; }
 /* ======================================================
    AUTH
    ====================================================== */
+/* ======================================================
+   CONFIG (site images)
+   ====================================================== */
+function getConfig() {
+  try { return JSON.parse(localStorage.getItem('dp_config') || '{}'); } catch { return {}; }
+}
+function setConfig(cfg) { localStorage.setItem('dp_config', JSON.stringify(cfg)); }
+
+// ── Hero image ──
+function previewHeroImg() {
+  const url = document.getElementById('heroImgUrl').value.trim();
+  if (!url) return;
+  const wrap = document.getElementById('heroImgPreview');
+  const img  = document.getElementById('heroPreviewEl');
+  img.src = url;
+  wrap.style.display = 'block';
+}
+function saveHeroImg() {
+  const url = document.getElementById('heroImgUrl').value.trim();
+  if (!url) { showNotification('Cole a URL da imagem primeiro.', 'error'); return; }
+  const cfg = getConfig();
+  cfg.heroImage = url;
+  setConfig(cfg);
+  showNotification('Imagem do Hero salva! Atualize a página do site para ver.');
+}
+function removeHeroImg() {
+  const cfg = getConfig();
+  delete cfg.heroImage;
+  setConfig(cfg);
+  document.getElementById('heroImgUrl').value = '';
+  document.getElementById('heroImgPreview').style.display = 'none';
+  showNotification('Imagem do Hero removida.');
+}
+
+// ── Vitrine photos ──
+function renderVitrineAdmin() {
+  const photos = getConfig().vitrinePhotos || [];
+  const grid   = document.getElementById('vitrineAdminGrid');
+  const empty  = document.getElementById('vitrineEmptyMsg');
+  if (!grid) return;
+  if (!photos.length) {
+    grid.innerHTML = '';
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+  grid.innerHTML = photos.map((p, i) => `
+    <div style="position:relative;border:1px solid var(--border);background:var(--cream)">
+      <img src="${p.url}" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block"
+        onerror="this.style.background='var(--cream-dark)';this.src=''">
+      <div style="padding:10px 10px 8px">
+        <input type="text" value="${p.caption || ''}" placeholder="Legenda…"
+          onchange="updateVitrineCaption(${i}, this.value)"
+          style="width:100%;border:1px solid var(--border);padding:6px 8px;font-family:var(--font-s);font-size:11px;color:var(--navy);background:var(--white);outline:none">
+        <div style="display:flex;gap:4px;margin-top:6px">
+          ${i > 0 ? `<button onclick="movePhoto(${i},-1)" title="Mover para cima" style="flex:1;border:1px solid var(--border);background:none;cursor:pointer;padding:4px;font-size:12px">↑</button>` : '<div style="flex:1"></div>'}
+          ${i < photos.length-1 ? `<button onclick="movePhoto(${i},1)" title="Mover para baixo" style="flex:1;border:1px solid var(--border);background:none;cursor:pointer;padding:4px;font-size:12px">↓</button>` : '<div style="flex:1"></div>'}
+          <button onclick="removePhoto(${i})" title="Remover"
+            style="flex:1;border:none;background:var(--danger);color:var(--white);cursor:pointer;padding:4px;font-size:12px">✕</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function previewNewPhoto() {
+  const url = document.getElementById('newPhotoUrl').value.trim();
+  if (!url) return;
+  const wrap = document.getElementById('newPhotoPreviewWrap');
+  const img  = document.getElementById('newPhotoPreviewEl');
+  img.src = url;
+  wrap.style.display = 'block';
+}
+
+function addVitrinePhoto() {
+  const url     = document.getElementById('newPhotoUrl').value.trim();
+  const caption = document.getElementById('newPhotoCaption').value.trim();
+  if (!url) { showNotification('Cole a URL da foto primeiro.', 'error'); return; }
+  const cfg    = getConfig();
+  cfg.vitrinePhotos = cfg.vitrinePhotos || [];
+  cfg.vitrinePhotos.push({ url, caption });
+  setConfig(cfg);
+  document.getElementById('newPhotoUrl').value = '';
+  document.getElementById('newPhotoCaption').value = '';
+  document.getElementById('newPhotoPreviewWrap').style.display = 'none';
+  renderVitrineAdmin();
+  showNotification('Foto adicionada! Atualize o site para ver a vitrine.');
+}
+
+function removePhoto(i) {
+  const cfg = getConfig();
+  cfg.vitrinePhotos = cfg.vitrinePhotos || [];
+  cfg.vitrinePhotos.splice(i, 1);
+  setConfig(cfg);
+  renderVitrineAdmin();
+  showNotification('Foto removida.');
+}
+
+function movePhoto(i, dir) {
+  const cfg = getConfig();
+  const arr = cfg.vitrinePhotos || [];
+  const j = i + dir;
+  if (j < 0 || j >= arr.length) return;
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  cfg.vitrinePhotos = arr;
+  setConfig(cfg);
+  renderVitrineAdmin();
+}
+
+function updateVitrineCaption(i, val) {
+  const cfg = getConfig();
+  if (cfg.vitrinePhotos && cfg.vitrinePhotos[i]) {
+    cfg.vitrinePhotos[i].caption = val;
+    setConfig(cfg);
+  }
+}
+
 function doLogin(e) {
   e.preventDefault();
   const u = document.getElementById('loginUser').value.trim();
@@ -614,6 +804,12 @@ function showPage(id, btn) {
   if (btn) btn.classList.add('active');
   if (id === 'newpost' && !document.getElementById('fEditId').value) {
     resetEditor();
+  }
+  if (id === 'images') {
+    // pre-fill hero URL if saved
+    const cfg = getConfig();
+    if (cfg.heroImage) document.getElementById('heroImgUrl').value = cfg.heroImage;
+    renderVitrineAdmin();
   }
   clearNotification();
 }
