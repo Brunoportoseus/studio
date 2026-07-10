@@ -135,7 +135,7 @@ body {
   z-index: 1000;
   background: rgba(12, 28, 46, .97);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(184, 150, 90, .2);
+  border-bottom: 1px solid rgba(184, 150, 90, .35);
   transition: all .3s ease;
 }
 
@@ -143,8 +143,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  gap: 40px;
+  height: 96px;
+  gap: 32px;
 }
 
 .logo {
@@ -186,7 +186,7 @@ body {
   color: var(--gold);
 }
 
-nav { display: flex; align-items: center; gap: 32px; }
+nav { display: flex; align-items: center; justify-content: center; gap: 28px; flex: 1; }
 nav a {
   font-size: 10px;
   font-weight: 600;
@@ -228,7 +228,7 @@ nav a:hover { color: var(--gold); }
   position: relative;
   overflow: hidden;
   background: var(--navy);
-  padding-top: 80px;
+  padding-top: 96px;
 }
 
 .hero-bg {
