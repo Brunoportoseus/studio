@@ -143,6 +143,16 @@ function submitMainForm(e) {
 let vitrinePhotos = [];
 let lbIndex = 0;
 
+// Fotos padrão (as do repositório)
+const DEFAULT_VITRINE = [
+  { url: 'fotos/sobrancelha.jpeg',          caption: 'Sobrancelhas' },
+  { url: 'fotos/Sobrancelha2.jpeg',         caption: 'Sobrancelhas' },
+  { url: 'fotos/l%C3%A1bios.jpeg',          caption: 'Lábios' },
+  { url: 'fotos/L%C3%A1bios2.jpeg',         caption: 'Lábios' },
+  { url: 'fotos/Avalia%C3%A7%C3%A3o.jpeg',  caption: 'Avaliação' },
+  { url: 'fotos/Corre%C3%A7%C3%A3o.jpeg',   caption: 'Correção' },
+];
+
 function loadSiteImages() {
   try {
     const cfg = JSON.parse(localStorage.getItem('dp_config') || '{}');
@@ -156,27 +166,30 @@ function loadSiteImages() {
       heroBg.style.opacity = '0.55';
     }
 
-    // Vitrine grid
-    const grid = document.getElementById('vitrineGrid');
-    if (!grid) return;
-    vitrinePhotos = cfg.vitrinePhotos || [];
+    // Vitrine: usa fotos do admin se existirem, senão usa padrão
+    const savedPhotos = cfg.vitrinePhotos || [];
+    vitrinePhotos = savedPhotos.length > 0 ? savedPhotos : DEFAULT_VITRINE;
 
-    if (vitrinePhotos.length === 0) {
-      // show placeholder — already in HTML
-      return;
-    }
-
-    grid.innerHTML = vitrinePhotos.map((p, i) => `
-      <div class="vitrine-item fade-up" onclick="openLightbox(${i})" style="transition-delay:${(i % 4) * 0.06}s">
-        <img src="${p.url}" alt="${p.caption || 'Resultado Denise de Paula'}" loading="lazy">
-        <div class="vitrine-overlay">
-          <span class="vitrine-caption">${p.caption || ''}</span>
+    // Se admin configurou fotos, re-renderiza o grid
+    if (savedPhotos.length > 0) {
+      const grid = document.getElementById('vitrineGrid');
+      if (!grid) return;
+      grid.innerHTML = vitrinePhotos.map((p, i) => `
+        <div class="vitrine-item fade-up" onclick="openLightbox(${i})" style="transition-delay:${(i % 4) * 0.06}s">
+          <img src="${p.url}" alt="${p.caption || 'Resultado Denise de Paula'}" loading="lazy">
+          <div class="vitrine-overlay">
+            <span class="vitrine-caption">${p.caption || ''}</span>
+          </div>
         </div>
-      </div>
-    `).join('');
-
-    grid.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-  } catch(e) {}
+      `).join('');
+      grid.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    } else {
+      // Fotos já estão no HTML — só atualiza o array para o lightbox
+      vitrinePhotos = DEFAULT_VITRINE;
+    }
+  } catch(e) {
+    vitrinePhotos = DEFAULT_VITRINE;
+  }
 }
 
 // Lightbox

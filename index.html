@@ -303,12 +303,30 @@
       <a href="#contato" class="btn btn-outline" style="flex-shrink:0">Agendar Minha Avaliação</a>
     </div>
     <div id="vitrineGrid" class="vitrine-grid">
-      <!-- preenchido dinamicamente pelo script -->
-      <div class="vitrine-placeholder fade-up">
-        <div class="vitrine-ph-inner">
-          <span style="font-size:32px;color:rgba(184,150,90,.3)">✦</span>
-          <p style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:12px">Fotos em breve</p>
-        </div>
+      <!-- fotos padrão — substituídas pelo admin se configurado -->
+      <div class="vitrine-item fade-up" onclick="openLightbox(0)">
+        <img src="fotos/sobrancelha.jpeg" alt="Micropigmentação de Sobrancelhas" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Sobrancelhas</span></div>
+      </div>
+      <div class="vitrine-item fade-up" style="transition-delay:.06s" onclick="openLightbox(1)">
+        <img src="fotos/Sobrancelha2.jpeg" alt="Micropigmentação de Sobrancelhas" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Sobrancelhas</span></div>
+      </div>
+      <div class="vitrine-item fade-up" style="transition-delay:.12s" onclick="openLightbox(2)">
+        <img src="fotos/l%C3%A1bios.jpeg" alt="Micropigmentação Labial" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Lábios</span></div>
+      </div>
+      <div class="vitrine-item fade-up" style="transition-delay:.18s" onclick="openLightbox(3)">
+        <img src="fotos/L%C3%A1bios2.jpeg" alt="Micropigmentação Labial" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Lábios</span></div>
+      </div>
+      <div class="vitrine-item fade-up" style="transition-delay:.24s" onclick="openLightbox(4)">
+        <img src="fotos/Avalia%C3%A7%C3%A3o.jpeg" alt="Avaliação" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Avaliação</span></div>
+      </div>
+      <div class="vitrine-item fade-up" style="transition-delay:.30s" onclick="openLightbox(5)">
+        <img src="fotos/Corre%C3%A7%C3%A3o.jpeg" alt="Correção de Micropigmentação" loading="lazy">
+        <div class="vitrine-overlay"><span class="vitrine-caption">Correção</span></div>
       </div>
     </div>
   </div>
