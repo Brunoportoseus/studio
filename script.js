@@ -59,7 +59,6 @@ function switchTab(btn, panelId) {
 
 // ── Testimonials carousel ───────────────────────────────────
 let testimonialIdx = 0;
-const VISIBLE = window.innerWidth < 640 ? 1 : window.innerWidth < 900 ? 2 : 3;
 
 function getVisible() {
   return window.innerWidth < 640 ? 1 : window.innerWidth < 900 ? 2 : 3;
@@ -70,13 +69,14 @@ function updateCarousel() {
   if (!track) return;
   const cards = track.querySelectorAll('.testimonial-card');
   const vis = getVisible();
+  const cardPct = 100 / vis;
   const maxIdx = Math.max(0, cards.length - vis);
   testimonialIdx = Math.min(testimonialIdx, maxIdx);
-  const pct = (100 / vis) * testimonialIdx;
-  track.style.transform = `translateX(-${pct}%)`;
-  cards.forEach((c, i) => {
-    c.style.minWidth = `calc(${100 / vis}% - 2px)`;
+  cards.forEach(c => {
+    c.style.width = cardPct + '%';
+    c.style.minWidth = cardPct + '%';
   });
+  track.style.transform = `translateX(-${cardPct * testimonialIdx}%)`;
 }
 
 function nextTestimonial() {
@@ -108,6 +108,32 @@ document.getElementById('testimonialsTrack')?.addEventListener('mouseleave', () 
 
 window.addEventListener('resize', updateCarousel);
 updateCarousel();
+
+// ── Load testimonials from admin ────────────────────────────
+function loadTestimonials() {
+  try {
+    const cfg = JSON.parse(localStorage.getItem('dp_config') || '{}');
+    const saved = cfg.testimonials || [];
+    if (!saved.length) return;
+    const track = document.getElementById('testimonialsTrack');
+    if (!track) return;
+    track.innerHTML = saved.map(t => `
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"${t.text}"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">${(t.name || 'A').charAt(0).toUpperCase()}</div>
+          <div>
+            <div class="author-name">${t.name || ''}</div>
+            <div class="author-city">${t.city || ''}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    testimonialIdx = 0;
+    updateCarousel();
+  } catch(e) {}
+}
 
 // ── Form submissions ────────────────────────────────────────
 function submitHeroForm(e) {
@@ -262,6 +288,7 @@ document.addEventListener('keydown', e => {
 
 // Init on load
 loadSiteImages();
+loadTestimonials();
 
 // ── Smooth scroll for anchor links ─────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {

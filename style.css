@@ -645,15 +645,15 @@ nav a:hover { color: var(--gold); }
 
 .testimonials-track {
   display: flex;
-  gap: 2px;
   transition: transform .5s ease;
 }
 
 .testimonial-card {
-  min-width: calc(33.333% - 2px);
-  background: rgba(255,255,255,.04);
+  width: 33.333%;
+  min-width: 33.333%;
+  background: rgba(255,255,255,.06);
   border: 1px solid rgba(184,150,90,.15);
-  padding: 52px 48px;
+  padding: 52px 40px;
   flex-shrink: 0;
   overflow: hidden;
   box-sizing: border-box;
@@ -1211,6 +1211,6 @@ nav a:hover { color: var(--gold); }
   .services-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
-  .testimonials-track .testimonial-card { min-width: 100%; padding: 36px 24px; }
+  .testimonials-track .testimonial-card { width: 100%; min-width: 100%; padding: 36px 24px; }
   .footer-top { grid-template-columns: 1fr; gap: 48px; }
 }

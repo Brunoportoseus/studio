@@ -301,6 +301,9 @@
         <button class="sidebar-link" onclick="showPage('images',this)">
           <span class="sidebar-icon">🖼</span> Imagens
         </button>
+        <button class="sidebar-link" onclick="showPage('testimonials',this)">
+          <span class="sidebar-icon">💬</span> Depoimentos
+        </button>
         <button class="sidebar-link" onclick="showPage('leads',this)">
           <span class="sidebar-icon">◎</span> Leads
         </button>
@@ -633,6 +636,35 @@
         </div>
       </div>
 
+      <!-- ── TESTIMONIALS ─── -->
+      <div id="page-testimonials" class="page">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Depoimentos</h1>
+            <p class="page-subtitle">Gerencie os depoimentos da seção "Vozes de Confiança"</p>
+          </div>
+        </div>
+        <div style="background:var(--cream);padding:24px;margin-bottom:24px">
+          <p style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Novo Depoimento</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+            <div>
+              <label style="display:block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Nome</label>
+              <input type="text" id="newTestName" placeholder="Ex: Ana Cláudia M." style="width:100%;border:1px solid var(--border);padding:10px 14px;font-family:var(--font-s);font-size:13px;color:var(--navy);background:var(--white);outline:none">
+            </div>
+            <div>
+              <label style="display:block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Cidade</label>
+              <input type="text" id="newTestCity" placeholder="Ex: Curitiba, PR" style="width:100%;border:1px solid var(--border);padding:10px 14px;font-family:var(--font-s);font-size:13px;color:var(--navy);background:var(--white);outline:none">
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label style="display:block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Texto do Depoimento</label>
+            <textarea id="newTestText" rows="3" placeholder="Escreva o depoimento aqui..." style="width:100%;border:1px solid var(--border);padding:10px 14px;font-family:var(--font-s);font-size:13px;color:var(--navy);background:var(--white);outline:none;resize:vertical"></textarea>
+          </div>
+          <button class="btn btn-gold" onclick="addTestimonial()">+ Adicionar Depoimento</button>
+        </div>
+        <div id="testimonialsAdminList"></div>
+      </div>
+
       <!-- ── SETTINGS ─── -->
       <div id="page-settings" class="page">
         <div class="page-header">
@@ -946,6 +978,69 @@ function updateGaleriaCaption(i, val) {
   if (cfg[key] && cfg[key][i]) { cfg[key][i].caption = val; setConfig(cfg); }
 }
 
+// ── Testimonials admin ──────────────────────────────────────
+const DEFAULT_TESTIMONIALS = [
+  { name: 'Ana Cláudia M.', city: 'Curitiba, PR', text: 'Há 8 anos faço minha micropigmentação com a Denise. É impossível imaginar meu rosto sem o trabalho dela. Perfeição absoluta em cada detalhe.' },
+  { name: 'Mariana S.', city: 'São Paulo, SP', text: 'Fui indicada por uma amiga e saí de lá completamente transformada. As sobrancelhas ficaram tão naturais que as pessoas não percebem que são micropigmentadas.' },
+  { name: 'Carolina V.', city: 'Buenos Aires, AR', text: 'Vim de Buenos Aires especialmente para fazer o procedimento com a Denise. Vale cada quilômetro. Profissionalismo e delicadeza incomparáveis.' },
+  { name: 'Fernanda L.', city: 'Curitiba, PR', text: 'Tinha medo de micropigmentação depois de um resultado ruim com outra profissional. A Denise desfez o trabalho anterior e criou algo lindo. Recomendo sem hesitar.' },
+  { name: 'Roberta P.', city: 'Londrina, PR', text: 'A Denise tem um dom especial para entender o que você quer e entregar além do esperado. Meus lábios ficaram perfeitos — definidos e com cor linda.' },
+];
+
+function renderTestimonialsAdmin() {
+  const cfg = getConfig();
+  const list = cfg.testimonials || DEFAULT_TESTIMONIALS;
+  const el = document.getElementById('testimonialsAdminList');
+  if (!el) return;
+  if (!list.length) {
+    el.innerHTML = '<p style="font-size:12px;color:var(--muted);text-align:center;padding:32px 0">Nenhum depoimento cadastrado.</p>';
+    return;
+  }
+  el.innerHTML = list.map((t, i) => `
+    <div style="background:var(--white);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start">
+      <div>
+        <div style="display:flex;gap:12px;margin-bottom:10px">
+          <input type="text" value="${(t.name||'').replace(/"/g,'&quot;')}" onchange="updateTestimonial(${i},'name',this.value)" placeholder="Nome" style="flex:1;border:1px solid var(--border);padding:8px 12px;font-family:var(--font-s);font-size:12px;color:var(--navy);background:var(--cream);outline:none">
+          <input type="text" value="${(t.city||'').replace(/"/g,'&quot;')}" onchange="updateTestimonial(${i},'city',this.value)" placeholder="Cidade" style="flex:1;border:1px solid var(--border);padding:8px 12px;font-family:var(--font-s);font-size:12px;color:var(--navy);background:var(--cream);outline:none">
+        </div>
+        <textarea rows="2" onchange="updateTestimonial(${i},'text',this.value)" style="width:100%;border:1px solid var(--border);padding:8px 12px;font-family:var(--font-s);font-size:12px;color:var(--navy);background:var(--cream);outline:none;resize:vertical">${(t.text||'').replace(/</g,'&lt;')}</textarea>
+      </div>
+      <button onclick="removeTestimonial(${i})" style="background:none;border:1px solid var(--danger);color:var(--danger);padding:8px 14px;cursor:pointer;font-size:11px;font-family:var(--font-s)">✕</button>
+    </div>
+  `).join('');
+}
+
+function addTestimonial() {
+  const name = document.getElementById('newTestName').value.trim();
+  const city = document.getElementById('newTestCity').value.trim();
+  const text = document.getElementById('newTestText').value.trim();
+  if (!text) { showNotification('Escreva o texto do depoimento.', 'error'); return; }
+  const cfg = getConfig();
+  cfg.testimonials = cfg.testimonials || [...DEFAULT_TESTIMONIALS];
+  cfg.testimonials.push({ name, city, text });
+  setConfig(cfg);
+  document.getElementById('newTestName').value = '';
+  document.getElementById('newTestCity').value = '';
+  document.getElementById('newTestText').value = '';
+  renderTestimonialsAdmin();
+  showNotification('Depoimento adicionado! Atualize o site para ver.');
+}
+
+function removeTestimonial(i) {
+  const cfg = getConfig();
+  cfg.testimonials = cfg.testimonials || [...DEFAULT_TESTIMONIALS];
+  cfg.testimonials.splice(i, 1);
+  setConfig(cfg);
+  renderTestimonialsAdmin();
+  showNotification('Depoimento removido.');
+}
+
+function updateTestimonial(i, field, val) {
+  const cfg = getConfig();
+  cfg.testimonials = cfg.testimonials || [...DEFAULT_TESTIMONIALS];
+  if (cfg.testimonials[i]) { cfg.testimonials[i][field] = val; setConfig(cfg); }
+}
+
 function doLogin(e) {
   e.preventDefault();
   const u = document.getElementById('loginUser').value.trim();
@@ -960,6 +1055,7 @@ function doLogin(e) {
     renderPostsTable();
     renderCatsTable();
     renderLeadsTable();
+    renderTestimonialsAdmin();
   } else {
     document.getElementById('loginErr').style.display = 'block';
   }
@@ -992,6 +1088,9 @@ function showPage(id, btn) {
     if (cfg.denisePhoto) document.getElementById('denisePhotoUrl').value = cfg.denisePhoto;
     renderVitrineAdmin();
     renderGaleriaAdmin();
+  }
+  if (id === 'testimonials') {
+    renderTestimonialsAdmin();
   }
   clearNotification();
 }
