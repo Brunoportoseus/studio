@@ -175,13 +175,14 @@ function loadSiteImages() {
       if (logoText) logoText.style.display = 'none';
     }
 
-    // Foto da Denise no hero
-    const photoImg  = document.getElementById('heroPhotoImg');
-    const photoPlch = document.getElementById('heroPhotoPlaceholder');
-    if (photoImg && cfg.denisePhoto) {
-      photoImg.src = cfg.denisePhoto;
-      photoImg.style.display = 'block';
-      if (photoPlch) photoPlch.style.display = 'none';
+    // Foto da Denise no hero (desktop + mobile)
+    const photoImg   = document.getElementById('heroPhotoImg');
+    const photoPlch  = document.getElementById('heroPhotoPlaceholder');
+    const photoMobile = document.getElementById('heroPhotoMobile');
+    if (cfg.denisePhoto) {
+      if (photoImg)   { photoImg.src = cfg.denisePhoto; photoImg.style.display = 'block'; }
+      if (photoPlch)  { photoPlch.style.display = 'none'; }
+      if (photoMobile){ photoMobile.src = cfg.denisePhoto; }
     }
 
     // Vitrine: usa fotos do admin se existirem, senão usa padrão
