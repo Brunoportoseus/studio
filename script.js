@@ -145,12 +145,12 @@ let lbIndex = 0;
 
 // Fotos padrão (as do repositório)
 const DEFAULT_VITRINE = [
-  { url: 'fotos/sobrancelha.jpeg',          caption: 'Sobrancelhas' },
-  { url: 'fotos/Sobrancelha2.jpeg',         caption: 'Sobrancelhas' },
-  { url: 'fotos/l%C3%A1bios.jpeg',          caption: 'Lábios' },
-  { url: 'fotos/L%C3%A1bios2.jpeg',         caption: 'Lábios' },
-  { url: 'fotos/Avalia%C3%A7%C3%A3o.jpeg',  caption: 'Avaliação' },
-  { url: 'fotos/Corre%C3%A7%C3%A3o.jpeg',   caption: 'Correção' },
+  { url: 'fotos/micropigmentacao.sobrancelha.jpg',   caption: 'Sobrancelhas' },
+  { url: 'fotos/micropigmentacao.sobrancelha.1.jpg', caption: 'Sobrancelhas' },
+  { url: 'fotos/micropigmentacao.labios_.jpg',       caption: 'Lábios' },
+  { url: 'fotos/micropigmentacao.labios.2.jpg',      caption: 'Lábios' },
+  { url: 'fotos/micropigmentacaoavaliacao.jpg',      caption: 'Avaliação' },
+  { url: 'fotos/micropigmentacao.correcao.jpg',      caption: 'Correção' },
 ];
 
 function loadSiteImages() {

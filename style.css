@@ -216,14 +216,18 @@ nav a:hover { color: var(--gold); }
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  gap: 6px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  flex-shrink: 0;
 }
 .hamburger span {
-  width: 24px;
-  height: 1px;
+  display: block;
+  width: 26px;
+  height: 2px;
   background: var(--white);
+  border-radius: 2px;
   transition: all .3s;
 }
 
