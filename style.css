@@ -109,6 +109,13 @@ body {
 }
 .btn-outline:hover { background: var(--gold); color: var(--white); }
 
+.btn-outline-navy {
+  background: transparent;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+}
+.btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
 .btn-navy {
   background: var(--navy);
   color: var(--gold);
@@ -149,15 +156,14 @@ body {
 }
 
 .logo-icon {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--gold);
+  width: 96px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--gold);
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 44px;
   font-weight: 400;
   letter-spacing: 1px;
 }
