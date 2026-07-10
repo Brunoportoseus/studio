@@ -203,9 +203,24 @@ function loadSiteImages() {
       `).join('');
       grid.querySelectorAll('.fade-up').forEach(el => io.observe(el));
     } else {
-      // Fotos já estão no HTML — só atualiza o array para o lightbox
       vitrinePhotos = DEFAULT_VITRINE;
     }
+
+    // Galeria Antes/Depois — carrega do admin se existirem
+    ['sobrancelhas', 'labios', 'olhos'].forEach(cat => {
+      const photos = cfg['galeria_' + cat] || [];
+      if (!photos.length) return;
+      const grid = document.getElementById(cat + '-grid');
+      if (!grid) return;
+      grid.innerHTML = photos.map((p, i) => `
+        <div class="gallery-item fade-up" style="transition-delay:${i * 0.05}s">
+          <img src="${p.url}" alt="${p.caption || ''}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div class="gallery-caption">${p.caption || ''}</div>
+        </div>
+      `).join('');
+      grid.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    });
+
   } catch(e) {
     vitrinePhotos = DEFAULT_VITRINE;
   }

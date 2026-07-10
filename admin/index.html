@@ -602,6 +602,35 @@
             Nenhuma foto adicionada ainda.
           </p>
         </div>
+
+        <!-- Galeria Antes/Depois -->
+        <div class="editor-panel" style="margin-top:2px">
+          <h4>Galeria Antes e Depois</h4>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;line-height:1.8">
+            Adicione fotos combinadas (Antes+Depois na mesma imagem) por categoria. Proporção recomendada: 16:9 (horizontal).
+          </p>
+          <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+            <button onclick="setGaleriaTab('sobrancelhas')" id="gTab-sobrancelhas" class="btn btn-gold" style="font-size:11px;padding:8px 18px">Sobrancelhas</button>
+            <button onclick="setGaleriaTab('labios')" id="gTab-labios" class="btn btn-outline" style="font-size:11px;padding:8px 18px">Lábios</button>
+            <button onclick="setGaleriaTab('olhos')" id="gTab-olhos" class="btn btn-outline" style="font-size:11px;padding:8px 18px">Olhos</button>
+          </div>
+          <div style="background:var(--cream);padding:24px;margin-bottom:20px">
+            <p style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Adicionar Foto</p>
+            <div style="display:grid;grid-template-columns:1fr 200px auto;gap:12px;align-items:end">
+              <div class="field" style="margin-bottom:0">
+                <label>URL da Foto (Antes+Depois combinada)</label>
+                <input type="url" id="newGaleriaUrl" placeholder="https://exemplo.com/antes-depois.jpg">
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Legenda</label>
+                <input type="text" id="newGaleriaCaption" placeholder="Ex: Fio a Fio">
+              </div>
+              <button class="btn btn-gold" onclick="addGaleriaPhoto()" style="height:46px">+ Adicionar</button>
+            </div>
+          </div>
+          <div id="galeriaAdminGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:20px"></div>
+          <p id="galeriaEmptyMsg" style="font-size:12px;color:var(--muted);text-align:center;padding:32px 0">Nenhuma foto nesta categoria.</p>
+        </div>
       </div>
 
       <!-- ── SETTINGS ─── -->
@@ -853,6 +882,70 @@ function updateVitrineCaption(i, val) {
   }
 }
 
+// ── Galeria Antes/Depois ──
+let currentGaleriaTab = 'sobrancelhas';
+
+function setGaleriaTab(tab) {
+  currentGaleriaTab = tab;
+  ['sobrancelhas','labios','olhos'].forEach(t => {
+    const btn = document.getElementById('gTab-' + t);
+    if (btn) { btn.className = t === tab ? 'btn btn-gold' : 'btn btn-outline'; btn.style.cssText = 'font-size:11px;padding:8px 18px'; }
+  });
+  renderGaleriaAdmin();
+}
+
+function renderGaleriaAdmin() {
+  const cfg = getConfig();
+  const key = 'galeria_' + currentGaleriaTab;
+  const photos = (cfg[key] || []);
+  const grid = document.getElementById('galeriaAdminGrid');
+  const empty = document.getElementById('galeriaEmptyMsg');
+  if (!grid) return;
+  if (!photos.length) { grid.innerHTML = ''; if (empty) empty.style.display = 'block'; return; }
+  if (empty) empty.style.display = 'none';
+  grid.innerHTML = photos.map((p, i) => `
+    <div style="position:relative;border:1px solid var(--border);background:var(--cream)">
+      <img src="${p.url}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block" onerror="this.style.opacity='.2'">
+      <div style="padding:8px">
+        <input type="text" value="${p.caption || ''}" placeholder="Legenda…"
+          onchange="updateGaleriaCaption(${i}, this.value)"
+          style="width:100%;border:1px solid var(--border);padding:5px 7px;font-family:var(--font-s);font-size:11px;color:var(--navy);background:var(--white);outline:none">
+        <button onclick="removeGaleriaPhoto(${i})"
+          style="width:100%;margin-top:5px;border:none;background:var(--danger);color:var(--white);cursor:pointer;padding:4px;font-size:11px">✕ Remover</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addGaleriaPhoto() {
+  const url = document.getElementById('newGaleriaUrl').value.trim();
+  const caption = document.getElementById('newGaleriaCaption').value.trim();
+  if (!url) { showNotification('Cole a URL da foto primeiro.', 'error'); return; }
+  const cfg = getConfig();
+  const key = 'galeria_' + currentGaleriaTab;
+  if (!cfg[key]) cfg[key] = [];
+  cfg[key].push({ url, caption });
+  setConfig(cfg);
+  document.getElementById('newGaleriaUrl').value = '';
+  document.getElementById('newGaleriaCaption').value = '';
+  renderGaleriaAdmin();
+  showNotification('Foto adicionada! Atualize o site para ver.');
+}
+
+function removeGaleriaPhoto(i) {
+  const cfg = getConfig();
+  const key = 'galeria_' + currentGaleriaTab;
+  if (cfg[key]) { cfg[key].splice(i, 1); setConfig(cfg); }
+  renderGaleriaAdmin();
+  showNotification('Foto removida.');
+}
+
+function updateGaleriaCaption(i, val) {
+  const cfg = getConfig();
+  const key = 'galeria_' + currentGaleriaTab;
+  if (cfg[key] && cfg[key][i]) { cfg[key][i].caption = val; setConfig(cfg); }
+}
+
 function doLogin(e) {
   e.preventDefault();
   const u = document.getElementById('loginUser').value.trim();
@@ -898,6 +991,7 @@ function showPage(id, btn) {
     if (cfg.logoImage)   document.getElementById('logoImgUrl').value = cfg.logoImage;
     if (cfg.denisePhoto) document.getElementById('denisePhotoUrl').value = cfg.denisePhoto;
     renderVitrineAdmin();
+    renderGaleriaAdmin();
   }
   clearNotification();
 }

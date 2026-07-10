@@ -586,7 +586,7 @@ nav a:hover { color: var(--gold); }
 .gallery-item {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/9;
   background: var(--cream-dark);
   display: flex;
   flex-direction: column;
