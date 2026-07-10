@@ -166,6 +166,24 @@ function loadSiteImages() {
       heroBg.style.opacity = '0.55';
     }
 
+    // Logo do site
+    const logoText = document.getElementById('logoIconText');
+    const logoImg  = document.getElementById('logoIconImg');
+    if (logoImg && cfg.logoImage) {
+      logoImg.src = cfg.logoImage;
+      logoImg.style.display = 'block';
+      if (logoText) logoText.style.display = 'none';
+    }
+
+    // Foto da Denise no hero
+    const photoImg  = document.getElementById('heroPhotoImg');
+    const photoPlch = document.getElementById('heroPhotoPlaceholder');
+    if (photoImg && cfg.denisePhoto) {
+      photoImg.src = cfg.denisePhoto;
+      photoImg.style.display = 'block';
+      if (photoPlch) photoPlch.style.display = 'none';
+    }
+
     // Vitrine: usa fotos do admin se existirem, senão usa padrão
     const savedPhotos = cfg.vitrinePhotos || [];
     vitrinePhotos = savedPhotos.length > 0 ? savedPhotos : DEFAULT_VITRINE;

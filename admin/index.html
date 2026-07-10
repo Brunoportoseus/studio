@@ -497,9 +497,55 @@
           </div>
         </div>
 
+        <!-- Logo do Site -->
+        <div class="editor-panel" style="margin-bottom:2px">
+          <h4>Logo do Site</h4>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.8">
+            Substitua as letras "DP" por uma imagem de logo. Cole a URL de uma imagem quadrada (.png com fundo transparente fica melhor).
+          </p>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end">
+            <div class="field" style="margin-bottom:0">
+              <label>URL do Logo</label>
+              <input type="url" id="logoImgUrl" placeholder="https://exemplo.com/logo.png">
+            </div>
+            <button class="btn btn-outline" onclick="previewLogoImg()" style="height:46px">Visualizar</button>
+          </div>
+          <div id="logoImgPreview" style="margin-top:20px;display:none">
+            <img id="logoPreviewEl" src="" alt="Preview Logo"
+              style="height:80px;width:80px;object-fit:contain;border:1px solid var(--border);background:var(--navy);padding:4px">
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <button class="btn btn-gold" onclick="saveLogoImg()">Salvar Logo</button>
+            <button class="btn btn-outline" onclick="removeLogoImg()">Remover</button>
+          </div>
+        </div>
+
+        <!-- Foto da Denise no Hero -->
+        <div class="editor-panel" style="margin-bottom:2px">
+          <h4>Foto da Denise — Hero</h4>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.8">
+            Foto de Denise que aparece no lado direito da seção principal. Recomendado: foto em formato retrato (vertical), rosto/busto, fundo neutro.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end">
+            <div class="field" style="margin-bottom:0">
+              <label>URL da Foto da Denise</label>
+              <input type="url" id="denisePhotoUrl" placeholder="https://exemplo.com/denise.jpg">
+            </div>
+            <button class="btn btn-outline" onclick="previewDenisePhoto()" style="height:46px">Visualizar</button>
+          </div>
+          <div id="denisePhotoPreview" style="margin-top:20px;display:none">
+            <img id="denisePreviewEl" src="" alt="Preview Denise"
+              style="max-height:280px;max-width:200px;object-fit:cover;object-position:center top;border:1px solid var(--border)">
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <button class="btn btn-gold" onclick="saveDenisePhoto()">Salvar Foto da Denise</button>
+            <button class="btn btn-outline" onclick="removeDenisePhoto()">Remover</button>
+          </div>
+        </div>
+
         <!-- Hero Image -->
         <div class="editor-panel" style="margin-bottom:2px">
-          <h4>Imagem Principal — Hero</h4>
+          <h4>Imagem de Fundo — Hero</h4>
           <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.8">
             Cole a URL de uma imagem para usar como fundo da seção principal do site.<br>
             Use links diretos de imagem (terminando em .jpg, .png, .webp) do Google Drive, Dropbox ou qualquer host.
@@ -658,6 +704,46 @@ function getConfig() {
 }
 function setConfig(cfg) { localStorage.setItem('dp_config', JSON.stringify(cfg)); }
 
+// ── Logo image ──
+function previewLogoImg() {
+  const url = document.getElementById('logoImgUrl').value.trim();
+  if (!url) return;
+  document.getElementById('logoPreviewEl').src = url;
+  document.getElementById('logoImgPreview').style.display = 'block';
+}
+function saveLogoImg() {
+  const url = document.getElementById('logoImgUrl').value.trim();
+  if (!url) { showNotification('Cole a URL do logo primeiro.', 'error'); return; }
+  const cfg = getConfig(); cfg.logoImage = url; setConfig(cfg);
+  showNotification('Logo salvo! Atualize a página do site para ver.');
+}
+function removeLogoImg() {
+  const cfg = getConfig(); delete cfg.logoImage; setConfig(cfg);
+  document.getElementById('logoImgUrl').value = '';
+  document.getElementById('logoImgPreview').style.display = 'none';
+  showNotification('Logo removido.');
+}
+
+// ── Denise hero photo ──
+function previewDenisePhoto() {
+  const url = document.getElementById('denisePhotoUrl').value.trim();
+  if (!url) return;
+  document.getElementById('denisePreviewEl').src = url;
+  document.getElementById('denisePhotoPreview').style.display = 'block';
+}
+function saveDenisePhoto() {
+  const url = document.getElementById('denisePhotoUrl').value.trim();
+  if (!url) { showNotification('Cole a URL da foto primeiro.', 'error'); return; }
+  const cfg = getConfig(); cfg.denisePhoto = url; setConfig(cfg);
+  showNotification('Foto da Denise salva! Atualize a página do site para ver.');
+}
+function removeDenisePhoto() {
+  const cfg = getConfig(); delete cfg.denisePhoto; setConfig(cfg);
+  document.getElementById('denisePhotoUrl').value = '';
+  document.getElementById('denisePhotoPreview').style.display = 'none';
+  showNotification('Foto da Denise removida.');
+}
+
 // ── Hero image ──
 function previewHeroImg() {
   const url = document.getElementById('heroImgUrl').value.trim();
@@ -808,7 +894,9 @@ function showPage(id, btn) {
   if (id === 'images') {
     // pre-fill hero URL if saved
     const cfg = getConfig();
-    if (cfg.heroImage) document.getElementById('heroImgUrl').value = cfg.heroImage;
+    if (cfg.heroImage)   document.getElementById('heroImgUrl').value = cfg.heroImage;
+    if (cfg.logoImage)   document.getElementById('logoImgUrl').value = cfg.logoImage;
+    if (cfg.denisePhoto) document.getElementById('denisePhotoUrl').value = cfg.denisePhoto;
     renderVitrineAdmin();
   }
   clearNotification();

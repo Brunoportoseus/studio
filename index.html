@@ -37,7 +37,10 @@
     <div class="header-inner">
 
       <a href="/" class="logo">
-        <div class="logo-icon">DP</div>
+        <div class="logo-icon" id="logoIconWrap">
+          <span id="logoIconText">DP</span>
+          <img id="logoIconImg" src="" alt="Logo" style="display:none;width:100%;height:100%;object-fit:contain;padding:4px;">
+        </div>
         <div class="logo-text">
           <span class="logo-name">Denise de Paula</span>
           <span class="logo-tagline">35 Anos · Micropigmentação</span>
@@ -76,16 +79,10 @@
 <section id="hero">
   <div class="hero-bg"></div>
 
-  <!-- Hero background image (managed via admin) -->
-  <div id="heroBgImg" style="position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,#1e3a5a 0%,#0c2240 50%,#0a1628 100%);opacity:.6;background-size:cover;background-position:center top;"></div>
-  <!-- Elegant geometric accent -->
-  <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.15);z-index:1;"></div>
-  <div style="position:absolute;right:10%;top:50%;transform:translate(24px,-50%);width:340px;height:340px;border:1px solid rgba(184,150,90,.08);z-index:1;"></div>
-
-  <div class="container">
+  <div class="container" style="position:relative;z-index:2">
     <div class="hero-content">
 
-      <!-- Left: Headline -->
+      <!-- Col 1: Headline -->
       <div class="hero-left fade-up">
         <div class="hero-eyebrow">Curitiba · BATEL · Pioneira no Brasil</div>
         <h1 class="hero-title">
@@ -102,8 +99,8 @@
         </div>
       </div>
 
-      <!-- Right: Lead Form -->
-      <div class="hero-form-wrap fade-up" style="transition-delay:.15s">
+      <!-- Col 2: Lead Form -->
+      <div class="hero-form-wrap fade-up" style="transition-delay:.1s">
         <p class="form-title">Inicie Sua Transformação</p>
         <p class="form-subtitle">Avaliação gratuita · Sem compromisso</p>
         <form onsubmit="submitHeroForm(event)">
@@ -131,6 +128,21 @@
             <button type="submit" class="btn btn-gold">Agendar →</button>
           </div>
         </form>
+      </div>
+
+      <!-- Col 3: Foto da Denise -->
+      <div class="hero-photo-col fade-up" style="transition-delay:.2s">
+        <div class="hero-photo-frame" id="heroPhotoFrame">
+          <!-- foto inserida via admin -->
+          <div class="hero-photo-placeholder" id="heroPhotoPlaceholder">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(184,150,90,.5);letter-spacing:1px">foto da Denise</span>
+          </div>
+          <img id="heroPhotoImg" src="" alt="Denise de Paula" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+        <div style="border-left:1px solid rgba(184,150,90,.3);padding-left:20px;margin-top:24px">
+          <p style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
+          <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5)">Fundadora · Pioneira no Brasil</p>
+        </div>
       </div>
 
     </div>
