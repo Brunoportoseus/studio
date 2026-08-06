@@ -17,4 +17,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://micropigmentacaodenisedp.com.br/sitemap.xml
+Sitemap: https://www.micropigmentacaodenisedp.com.br/sitemap.xml
