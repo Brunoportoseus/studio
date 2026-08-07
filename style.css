@@ -142,6 +142,7 @@ body {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(184, 150, 90, .35);
   transition: all .3s ease;
+  overflow: visible;
 }
 
 .header-inner {
@@ -192,11 +193,11 @@ body {
   color: var(--gold);
 }
 
-nav { display: flex; align-items: center; justify-content: center; gap: 28px; flex: 1; }
+nav { display: flex; align-items: center; justify-content: center; gap: 20px; flex: 1; }
 nav a {
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 2.5px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: rgba(255,255,255,.75);
   text-decoration: none;
@@ -209,8 +210,9 @@ nav a:hover { color: var(--gold); }
   flex-shrink: 0;
 }
 .header-cta .btn {
-  padding: 12px 28px;
+  padding: 10px 20px;
   font-size: 10px;
+  white-space: nowrap;
 }
 
 .hamburger {
