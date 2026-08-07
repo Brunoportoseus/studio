@@ -149,7 +149,8 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  gap: 32px;
+  gap: 24px;
+  padding: 10px 0;
 }
 
 .logo {
@@ -161,8 +162,8 @@ body {
 }
 
 .logo-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
