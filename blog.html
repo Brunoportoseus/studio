@@ -283,6 +283,7 @@
       <button class="filter-btn" onclick="filterPosts(this,'cuidados')">Cuidados &amp; Pós-Proc.</button>
       <button class="filter-btn" onclick="filterPosts(this,'faq')">Dúvidas Frequentes</button>
       <button class="filter-btn" onclick="filterPosts(this,'tendencias')">Tendências</button>
+      <button class="filter-btn" onclick="filterPosts(this,'correcao')">Correção &amp; Remoção</button>
     </div>
 
     <div class="blog-main-grid">
@@ -726,12 +727,173 @@
           </div>
         </a>
 
-        <a href="#" class="blog-post-item fade-up" data-cat="tendencias">
+        <a href="#" class="blog-post-item fade-up" data-cat="tendencias" onclick="openArticle(event,'art16')">
           <div class="blog-post-thumb">✦</div>
           <div class="blog-post-body">
             <div class="blog-post-category">Tendências</div>
             <h2 class="blog-post-title">Remoção de Micropigmentação a Laser em Curitiba: Quando e Por Quê</h2>
             <p class="blog-post-excerpt">A remoção de micropigmentação a laser é a solução para quem deseja recomeçar. Saiba como funciona o procedimento e quem pode realizá-lo em Curitiba.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <!-- NOVOS ARTIGOS -->
+        <a href="#" class="blog-post-item fade-up" data-cat="correcao" onclick="openArticle(event,'artC1')">
+          <div class="blog-post-thumb">↺</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Correção · Curitiba</div>
+            <h2 class="blog-post-title">Correção de Micropigmentação Mal Feita: Como Corrigir as Sobrancelhas em Curitiba</h2>
+            <p class="blog-post-excerpt">Pigmento verde, assimetria ou formato errado? Saiba como a correção de micropigmentação é feita em Curitiba e o que esperar do processo.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="cuidados" onclick="openArticle(event,'artC2')">
+          <div class="blog-post-thumb">✦</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Cuidados · Pós-Procedimento</div>
+            <h2 class="blog-post-title">Cicatrização da Micropigmentação: Cuidados e o Que Não Fazer Após o Procedimento</h2>
+            <p class="blog-post-excerpt">Os primeiros 10 dias após a micropigmentação definem o resultado final. Veja o guia completo de cuidados e os erros que comprometem a cicatrização.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="tecnica" onclick="openArticle(event,'artC3')">
+          <div class="blog-post-thumb">〰</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Técnica · Sobrancelhas</div>
+            <h2 class="blog-post-title">Sobrancelha Fio a Fio ou Sombreada: Qual Técnica de Micropigmentação Escolher?</h2>
+            <p class="blog-post-excerpt">Entenda as diferenças entre fio a fio e sombreado (powder brow) para escolher com segurança a técnica ideal para o seu tipo de pele e estilo de vida.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="sobrancelhas" onclick="openArticle(event,'artC4')">
+          <div class="blog-post-thumb">〰</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação de Sobrancelhas · Batel, Curitiba</div>
+            <h2 class="blog-post-title">Micropigmentação de Sobrancelhas no Batel, em Curitiba: Técnicas, Resultados e Cuidados</h2>
+            <p class="blog-post-excerpt">Guia local completo sobre micropigmentação de sobrancelhas no Batel, Curitiba — técnicas disponíveis, resultados esperados e cuidados essenciais.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="labial" onclick="openArticle(event,'artC5')">
+          <div class="blog-post-thumb">◇</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação Labial</div>
+            <h2 class="blog-post-title">Micropigmentação Labial Vale a Pena? Duração, Resultados e Benefícios do Procedimento</h2>
+            <p class="blog-post-excerpt">Tire todas as suas dúvidas sobre a micropigmentação labial — quanto dura, como fica após a cicatrização e por que cada vez mais mulheres escolhem o procedimento.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="tecnica" onclick="openArticle(event,'artC6')">
+          <div class="blog-post-thumb">✦</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Técnica · Peles Maduras</div>
+            <h2 class="blog-post-title">Micropigmentação Depois dos 50 Anos: Técnicas Indicadas para Peles Maduras</h2>
+            <p class="blog-post-excerpt">A micropigmentação para peles maduras exige adaptações técnicas específicas. Descubra quais técnicas são mais indicadas para mulheres acima dos 50 anos.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="sobrancelhas" onclick="openArticle(event,'artC7')">
+          <div class="blog-post-thumb">〰</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação · Reconstrução</div>
+            <h2 class="blog-post-title">Micropigmentação para Quem Perdeu as Sobrancelhas: Alopecia, Quimioterapia e Reconstrução</h2>
+            <p class="blog-post-excerpt">Para quem perdeu sobrancelhas por alopecia, quimioterapia ou outras condições, a micropigmentação oferece uma reconstrução delicada e natural.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="faq" onclick="openArticle(event,'artC8')">
+          <div class="blog-post-thumb">?</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Dúvidas Frequentes</div>
+            <h2 class="blog-post-title">Micropigmentação, Tatuagem ou Maquiagem Permanente: Entenda as Diferenças</h2>
+            <p class="blog-post-excerpt">Micropigmentação não é tatuagem nem maquiagem permanente — mas muita gente confunde. Entenda as diferenças técnicas, de pigmento e de resultado.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="faq" onclick="openArticle(event,'artC9')">
+          <div class="blog-post-thumb">?</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Dúvidas Frequentes · Curitiba</div>
+            <h2 class="blog-post-title">Quanto Custa uma Micropigmentação em Curitiba? Preços de Sobrancelhas e Lábios</h2>
+            <p class="blog-post-excerpt">Entenda os fatores que influenciam o preço da micropigmentação em Curitiba e por que o investimento vai muito além do valor da sessão.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="correcao" onclick="openArticle(event,'artC10')">
+          <div class="blog-post-thumb">↺</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Remoção a Laser · Curitiba</div>
+            <h2 class="blog-post-title">Remoção de Micropigmentação a Laser em Curitiba: Como Funciona e Quando é Indicada</h2>
+            <p class="blog-post-excerpt">Tudo sobre a remoção de micropigmentação a laser em Curitiba — como o procedimento funciona, quantas sessões são necessárias e quem pode fazer.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="correcao" onclick="openArticle(event,'artC11')">
+          <div class="blog-post-thumb">↺</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Correção · O Que Fazer</div>
+            <h2 class="blog-post-title">Micropigmentação Mal Feita: O Que Fazer Antes de Tentar Corrigir o Resultado</h2>
+            <p class="blog-post-excerpt">Antes de partir para a correção, existem etapas fundamentais. Saiba o que avaliar, quais perguntas fazer e como evitar piorar o resultado.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="cuidados" onclick="openArticle(event,'artC12')">
+          <div class="blog-post-thumb">✦</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Cuidados · Cicatrização</div>
+            <h2 class="blog-post-title">Quanto Tempo Leva a Cicatrização da Micropigmentação de Sobrancelhas?</h2>
+            <p class="blog-post-excerpt">A cicatrização da micropigmentação passa por fases distintas. Saiba o que esperar em cada etapa e quando o resultado realmente fica pronto.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="labial" onclick="openArticle(event,'artC13')">
+          <div class="blog-post-thumb">◇</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação Labial</div>
+            <h2 class="blog-post-title">Batom Micropigmentado: Quanto Tempo Dura e Como Fica Depois de Cicatrizado?</h2>
+            <p class="blog-post-excerpt">A micropigmentação labial com efeito batom é uma das mais pedidas. Descubra quanto tempo dura, como evolui e qual o resultado real após a cicatrização.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="labial" onclick="openArticle(event,'artC14')">
+          <div class="blog-post-thumb">◇</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação Labial · Peles Maduras</div>
+            <h2 class="blog-post-title">Micropigmentação em Lábios Finos e Maduros: O Procedimento Aumenta o Volume?</h2>
+            <p class="blog-post-excerpt">A micropigmentação labial pode definir, alongar e criar a ilusão de volume — sem preenchimento. Entenda os limites e possibilidades do procedimento.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="sobrancelhas" onclick="openArticle(event,'artC15')">
+          <div class="blog-post-thumb">〰</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Micropigmentação · Reconstrução</div>
+            <h2 class="blog-post-title">É Possível Reconstruir Completamente uma Sobrancelha com Micropigmentação?</h2>
+            <p class="blog-post-excerpt">Sim — e com resultados surpreendentes. Descubra como a micropigmentação reconstrói sobrancelhas ausentes com técnica e naturalidade.</p>
+            <span class="blog-post-link">Ler Artigo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-post-item fade-up" data-cat="correcao" onclick="openArticle(event,'artC16')">
+          <div class="blog-post-thumb">↺</div>
+          <div class="blog-post-body">
+            <div class="blog-post-category">Remoção a Laser · Sessões</div>
+            <h2 class="blog-post-title">Laser para Remover Micropigmentação: Quantas Sessões São Necessárias?</h2>
+            <p class="blog-post-excerpt">O número de sessões para remover micropigmentação a laser varia. Entenda os fatores que determinam quantas sessões você vai precisar e como o processo funciona.</p>
             <span class="blog-post-link">Ler Artigo →</span>
           </div>
         </a>
@@ -928,6 +1090,283 @@ const articles = {
       <p>Em média, entre <strong>1 e 3 anos</strong>. Fatores como tipo de pele, exposição solar, uso de ácidos e retinol influenciam a durabilidade. Retoques anuais mantêm o resultado sempre fresquinho.</p>
       <h2>Agendamento em Curitiba</h2>
       <p>O studio da Denise de Paula fica na Rua Buenos Aires, 457 — Batel, Curitiba. Agendamentos pelo WhatsApp (41) 97401-6961. A avaliação de micropigmentação de sobrancelhas é <strong>gratuita e sem compromisso</strong>.</p>
+    `
+  },
+  art16: {
+    cat: 'Tendências · Curitiba',
+    title: 'Remoção de Micropigmentação a Laser em Curitiba: Quando e Por Quê',
+    content: `
+      <p>A <strong>remoção de micropigmentação a laser</strong> tornou-se cada vez mais procurada em Curitiba — tanto para quem deseja recomeçar do zero quanto para quem precisa clarecer um pigmento antes de uma nova correção. Saiba quando esse procedimento é indicado e como funciona.</p>
+      <h2>Quando a Remoção a Laser é Indicada</h2>
+      <p>A remoção é o caminho quando: o pigmento está muito saturado para cobertura; a tonalidade mudou de forma significativa (azulado, esverdeado, vermelho); há sobreposição de muitas camadas de retoques; ou simplesmente a cliente deseja eliminar completamente o procedimento anterior.</p>
+      <h2>Como Funciona o Laser</h2>
+      <p>O laser Q-Switched emite pulsos de energia que fragmentam as partículas de pigmento na pele. O sistema imunológico do corpo elimina esses fragmentos gradualmente entre as sessões. O processo é seguro, preciso e controlado.</p>
+      <h2>Quantas Sessões?</h2>
+      <p>Para micropigmentações semi-permanentes, de <strong>3 a 8 sessões</strong> em média, com intervalo de 6 a 8 semanas entre elas. Em muitos casos, apenas 2 a 3 sessões de clareamento já são suficientes para uma nova micropigmentação por cima.</p>
+      <h2>A Tendência do "Recomeço"</h2>
+      <p>Cada vez mais clientes chegam ao studio buscando apagar uma micropigmentação antiga para começar com técnicas e estilos mais atuais. A combinação laser + nova micropigmentação se tornou um dos protocolos mais procurados em Curitiba. Agende sua avaliação gratuita pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC1: {
+    cat: 'Correção · Curitiba',
+    title: 'Correção de Micropigmentação Mal Feita em Curitiba: Como Resolver',
+    content: `
+      <p>Uma micropigmentação mal executada — seja por tonalidade errada, traço irregular, simetria comprometida ou pigmento que virou azulado — gera angústia real. A boa notícia: na grande maioria dos casos, é possível corrigir. Veja o que fazer.</p>
+      <h2>Quando a Micropigmentação Precisa de Correção?</h2>
+      <p>Os problemas mais frequentes que chegam ao studio da Denise de Paula em Curitiba são: pigmento com tom avermelhado, alaranjado ou azulado; assimetria entre sobrancelhas; traço grosso ou artificial; e resultado diferente do combinado.</p>
+      <h2>O Processo de Correção</h2>
+      <p><strong>1. Avaliação:</strong> Denise analisa o pigmento existente, o estado da pele e o tempo desde o procedimento anterior. Cada caso é único.</p>
+      <p><strong>2. Plano de tratamento:</strong> Dependendo do grau do problema, o caminho pode ser: cobertura com novo pigmento neutro, remoção parcial a laser seguida de nova micropigmentação, ou uma combinação das duas abordagens.</p>
+      <p><strong>3. Execução gradual:</strong> Correções complexas são feitas em etapas, respeitando o tempo de cicatrização entre sessões para garantir o melhor resultado.</p>
+      <h2>Antes de Corrigir: Cuidados Importantes</h2>
+      <p>Não aplique nada sobre a área. Não tente corrigir por conta própria. Espere pelo menos 30 dias após o último procedimento antes de iniciar qualquer tratamento corretivo.</p>
+      <h2>Correção de Micropigmentação em Curitiba</h2>
+      <p>O studio da Denise de Paula no Batel é especializado em correções complexas, com 35 anos de experiência. A avaliação é gratuita. Agende pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC2: {
+    cat: 'Cuidados & Pós-Procedimento',
+    title: 'Cicatrização da Micropigmentação: Cuidados e O Que Não Fazer',
+    content: `
+      <p>O período de cicatrização é tão importante quanto o procedimento em si. Descuidos nessa fase comprometem o pigmento, a uniformidade e a durabilidade do resultado. Saiba exatamente o que fazer — e o que evitar — nos dias seguintes à micropigmentação.</p>
+      <h2>A Linha do Tempo da Cicatrização</h2>
+      <p><strong>Dias 1-3:</strong> A área ficará um pouco mais escura e levemente inchada. O pigmento parece mais intenso do que o resultado final — isso é normal.</p>
+      <p><strong>Dias 4-7:</strong> Surgem as crostas. Essa fase exige paciência: não arranque, não coce. As crostas protegem o pigmento durante a fixação.</p>
+      <p><strong>Dias 8-14:</strong> As crostas caem naturalmente. O pigmento pode parecer apagado ou irregular — é a fase de "desaparecimento aparente". O resultado real só se revela após 30 dias.</p>
+      <p><strong>Dias 30-45:</strong> Momento ideal para o retoque de avaliação com Denise. Nessa consulta, ajustes finos são feitos para o resultado perfeito.</p>
+      <h2>O Que Não Fazer Durante a Cicatrização</h2>
+      <p>❌ Molhar a área no banho nos primeiros 7 dias<br>❌ Suor excessivo (academia, sauna) por 10 dias<br>❌ Sol direto na área por 30 dias (use protetor após a cicatrização)<br>❌ Maquiagem sobre a micropigmentação<br>❌ Arrancar ou coçar crostas<br>❌ Ácidos, retinol e esfoliantes na área</p>
+      <h2>O Que Fazer</h2>
+      <p>✅ Aplicar o creme cicatrizante indicado 2-3x ao dia<br>✅ Limpar suavemente com soro fisiológico<br>✅ Dormir de barriga para cima nos primeiros dias<br>✅ Tirar dúvidas direto com Denise pelo WhatsApp</p>
+    `
+  },
+  artC3: {
+    cat: 'Técnica & Arte',
+    title: 'Fio a Fio ou Sombreada: Qual Técnica de Sobrancelha Escolher?',
+    content: `
+      <p>Essa é uma das perguntas mais frequentes no studio. E a resposta não é uma só — ela depende do seu tipo de pele, estilo de vida e o resultado que você deseja. Veja um guia completo para tomar a melhor decisão.</p>
+      <h2>Fio a Fio (Microblading)</h2>
+      <p>O fio a fio cria micro-traços que imitam pelos individuais, resultando em sobrancelhas ultra-naturais. Ideal para quem tem poucos fios e quer um resultado que parece natural mesmo de perto. Dura em média 1 a 2 anos e é mais indicado para peles secas a normais.</p>
+      <p><strong>Escolha o fio a fio se:</strong> você quer o resultado mais natural possível, tem pele seca ou normal, e prefere maquiagem discreta ou nenhuma.</p>
+      <h2>Sombreada (Powder Brow / Ombre)</h2>
+      <p>A técnica sombreada cria um efeito de preenchimento suave, semelhante a uma sombra de sobrancelha. Dura mais (2 a 3 anos), funciona em todos os tipos de pele — inclusive oleosa — e entrega volume e definição maiores.</p>
+      <p><strong>Escolha o sombreado se:</strong> você tem pele oleosa, quer mais volume e definição, ou prefere uma sobrancelha com mais impacto visual.</p>
+      <h2>Técnica Híbrida</h2>
+      <p>A combinação das duas técnicas: fios naturais na cabeça da sobrancelha com sombreado no corpo e cauda. É a opção mais versátil e tem crescido muito em popularidade em Curitiba. Entrega naturalidade e definição ao mesmo tempo.</p>
+      <h2>Como Decidir</h2>
+      <p>A melhor forma é com uma avaliação presencial. Denise de Paula analisa seu rosto, seu tipo de pele e seu estilo para recomendar a técnica ideal. Agende sua avaliação gratuita pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC4: {
+    cat: 'Micropigmentação · Batel, Curitiba',
+    title: 'Micropigmentação no Batel, Curitiba: Técnicas, Resultados e Cuidados',
+    content: `
+      <p>O Batel é o bairro mais nobre de Curitiba e abriga o studio da Denise de Paula — referência em micropigmentação há 35 anos na capital paranaense. Se você mora ou trabalha na região, este guia completo é para você.</p>
+      <h2>Por Que Escolher uma Micropigmentadora no Batel?</h2>
+      <p>Proximidade, praticidade e qualidade que vale a deslocamento. O studio da Denise de Paula fica na Rua Buenos Aires, 457 — Batel, com fácil acesso via Centro Cívico, Água Verde e Seminário. Estacionamento disponível na região.</p>
+      <h2>Serviços Disponíveis no Studio</h2>
+      <p><strong>Sobrancelhas:</strong> Fio a fio, sombreado e técnica híbrida. Mapeamento facial incluso.<br><strong>Labial:</strong> Aquarela, contorno ou efeito batom para lábios mais definidos e duradouros.<br><strong>Olhos:</strong> Lash line e delineado micropigmentado para um olhar sempre produzido.<br><strong>Correção:</strong> Especialidade da casa — recuperação de micropigmentações mal executadas.<br><strong>Remoção a Laser:</strong> Protocolo completo de remoção quando a correção não é suficiente.</p>
+      <h2>Como é a Avaliação no Batel</h2>
+      <p>A avaliação é gratuita e sem compromisso. Denise analisa seu rosto, conversa sobre seus objetivos, apresenta as técnicas disponíveis e faz uma simulação do traçado. Você sai da consulta com clareza total do que esperar do resultado.</p>
+      <h2>Agendamento</h2>
+      <p>WhatsApp (41) 97401-6961. Atendimento de segunda a sexta. Rua Buenos Aires, 457 — Batel, Curitiba-PR.</p>
+    `
+  },
+  artC5: {
+    cat: 'Micropigmentação Labial · Curitiba',
+    title: 'Micropigmentação Labial Vale a Pena? Resultados Reais em Curitiba',
+    content: `
+      <p>A pergunta é legítima — e merece uma resposta honesta. A micropigmentação labial transformou a rotina de beleza de milhares de mulheres em Curitiba. Mas vale a pena para você? Depende do que você busca.</p>
+      <h2>O Que a Micropigmentação Labial Entrega</h2>
+      <p>✅ Lábios sempre com cor, mesmo ao acordar<br>✅ Contorno definido que não borra nem sai<br>✅ Correção de assimetrias e impressão de volume<br>✅ Economia de tempo na maquiagem diária<br>✅ Durabilidade de 1 a 3 anos</p>
+      <h2>O Que Ela Não Faz</h2>
+      <p>❌ Não adiciona volume físico como o preenchimento com ácido hialurônico<br>❌ Não substitui completamente o batom em ocasiões especiais<br>❌ Não é permanente — retoques periódicos são necessários</p>
+      <h2>Para Quem Vale Mais a Pena?</h2>
+      <p>A micropigmentação labial é especialmente transformadora para mulheres que: têm lábios com pouca definição de contorno; sofrem com batom que some rapidamente; têm assimetria labial; buscam praticidade na rotina beauty; ou querem um resultado natural e duradouro.</p>
+      <h2>Quanto Custa em Curitiba?</h2>
+      <p>O investimento varia conforme a técnica e o profissional. No studio da Denise de Paula, a avaliação é gratuita e os valores são apresentados na consulta, com informação completa sobre o que está incluso (retoque de avaliação, pós-procedimento).</p>
+      <h2>O Veredito</h2>
+      <p>Para a maioria das clientes, vale muito a pena. Mas a melhor forma de saber é conversar com Denise. Agende sua avaliação gratuita pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC6: {
+    cat: 'Técnica & Arte',
+    title: 'Micropigmentação Depois dos 50 Anos: O Que Muda e Como Adaptar',
+    content: `
+      <p>Muitas mulheres descobrem a micropigmentação depois dos 50 — e frequentemente comentam: "por que não fiz isso antes?". A técnica é totalmente indicada para essa faixa etária, com algumas adaptações importantes.</p>
+      <h2>Como a Pele Muda Após os 50</h2>
+      <p>A pele madura tem menos colágeno, é mais fina e pode ser mais sensível. A oleosidade tende a diminuir (boa notícia para a durabilidade do pigmento!), mas o metabolismo celular é mais lento, o que pode afetar a cicatrização.</p>
+      <h2>Adaptações Técnicas para Pele Madura</h2>
+      <p><strong>Pigmentação mais suave:</strong> Tons mais naturais e traços menos intensos ficam mais harmônicos com a pele madura, criando um resultado elegante sem parecer artificial.</p>
+      <p><strong>Técnica sombreada ou híbrida:</strong> O fio a fio puro pode parecer mais marcado em pele mais fina. A técnica sombreada ou híbrida entrega um resultado mais suave e duradouro.</p>
+      <p><strong>Lábios:</strong> A micropigmentação labial é especialmente transformadora após os 50 — redefine o contorno que se perde com os anos, devolve cor e dá a impressão de lábios mais jovens.</p>
+      <h2>O Que Esperar do Resultado</h2>
+      <p>Com técnica adequada e escolha de tons certos para a coloração pessoal, o resultado é rejuvenescedor sem parecer artificial. As clientes do studio relatam com frequência que o resultado as faz parecer de 5 a 10 anos mais jovens.</p>
+      <h2>Consulta Especializada em Curitiba</h2>
+      <p>Denise de Paula tem vasta experiência com micropigmentação em peles maduras. Agende sua avaliação gratuita no Batel pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC7: {
+    cat: 'Sobrancelhas',
+    title: 'Micropigmentação para Quem Perdeu as Sobrancelhas: Alopecia e Quimioterapia',
+    content: `
+      <p>A perda de sobrancelhas — seja por alopecia, quimioterapia, tricotilomania ou outras causas — vai além de uma questão estética. Afeta a autoestima, a identidade e o modo como a pessoa se vê no espelho. A micropigmentação pode devolver muito mais do que sobrancelhas.</p>
+      <h2>Micropigmentação para Alopecia</h2>
+      <p>A alopecia areata pode causar perda parcial ou total dos pelos das sobrancelhas. A micropigmentação reproduz com fidelidade a aparência de pelos naturais, criando sobrancelhas que parecem reais mesmo sem nenhum fio. O resultado é transformador.</p>
+      <h2>Micropigmentação Durante ou Após a Quimioterapia</h2>
+      <p>É necessário aguardar o término do tratamento quimioterápico e a liberação médica antes de iniciar a micropigmentação. Após esse período, o procedimento é seguro e os resultados são muito significativos — muitas pacientes descrevem como um passo importante na recuperação da autoestima.</p>
+      <h2>Como é o Processo</h2>
+      <p>Denise realiza um mapeamento facial cuidadoso, respeitando a proporção ideal para cada rosto e a cor natural que a cliente tinha (ou que mais se harmoniza com seu tom de pele e cabelo atual). O resultado simula sobrancelhas naturais com precisão.</p>
+      <h2>Cuidado e Acolhimento</h2>
+      <p>Casos de perda de pelos por condições de saúde recebem atenção especial no studio. A consulta é um espaço de escuta e planejamento cuidadoso, sem pressa. Agende pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC8: {
+    cat: 'Dúvidas Frequentes',
+    title: 'Micropigmentação vs. Tatuagem vs. Maquiagem Permanente: Qual a Diferença?',
+    content: `
+      <p>Os termos são muitas vezes usados de forma intercambiável, mas existem diferenças técnicas importantes. Entender cada um ajuda a tomar decisões mais informadas.</p>
+      <h2>Tatuagem Convencional</h2>
+      <p>A tatuagem implanta tinta nas camadas mais profundas da pele (derme), usando agulhas que penetram mais fundo. O resultado é permanente e o pigmento não se degrada — mas com o tempo pode mudar de cor (tons que ficam esverdeados ou azulados).</p>
+      <h2>Micropigmentação (Semi-Permanente)</h2>
+      <p>A micropigmentação trabalha nas camadas mais superficiais da pele. Utiliza pigmentos cosméticos (não tintas de tatuagem) formulados para degradação gradual e segura. O resultado dura de 1 a 3 anos e vai desaparecendo naturalmente, sem as mudanças indesejadas de cor da tatuagem.</p>
+      <h2>Maquiagem Permanente</h2>
+      <p>"Maquiagem permanente" é, na prática, outro nome para micropigmentação. O termo surgiu para comunicar o conceito de forma mais intuitiva, mas a técnica e os materiais são os mesmos.</p>
+      <h2>Por Que Não Tatuar Sobrancelhas?</h2>
+      <p>Profissionais especializados em estética facial não recomendam tatuagem convencional para sobrancelhas e lábios. A tinta de tatuagem pode mudar de cor ao longo do tempo (tornando-se azulada ou esverdeada), e a profundidade da aplicação torna a remoção muito mais complexa.</p>
+      <h2>Conclusão</h2>
+      <p>Para procedimentos estéticos faciais, a micropigmentação é a escolha técnica mais adequada. Pigmentos certos, profundidade adequada, resultado natural e reversibilidade. Agende uma avaliação com Denise para entender qual técnica é ideal para você.</p>
+    `
+  },
+  artC9: {
+    cat: 'Dúvidas Frequentes · Curitiba',
+    title: 'Quanto Custa a Micropigmentação em Curitiba? Entenda o Investimento',
+    content: `
+      <p>O preço da micropigmentação em Curitiba varia bastante — e entender o que influencia esse valor é essencial para tomar uma decisão segura e consciente.</p>
+      <h2>Fatores que Influenciam o Preço</h2>
+      <p><strong>Experiência da profissional:</strong> Micropigmentadoras com mais anos de prática e especialização cobram mais — e entregam mais segurança e qualidade.</p>
+      <p><strong>Técnica escolhida:</strong> Fio a fio, sombreado, híbrida, labial, olhos e correções têm precificações diferentes.</p>
+      <p><strong>O que está incluso:</strong> Verifique sempre se o retoque de avaliação (30-45 dias após o procedimento) está incluso no valor. No studio da Denise de Paula, sim.</p>
+      <p><strong>Materiais utilizados:</strong> Pigmentos importados de alta qualidade têm custo maior, mas garantem resultado mais seguro e duradouro.</p>
+      <h2>Por Que Desconfiar de Preços Muito Baixos?</h2>
+      <p>Micropigmentação é um procedimento que envolve perfuração da pele. Profissionais que cobram valores muito abaixo do mercado frequentemente economizam em materiais, higiene ou treinamento — aumentando o risco de infecções, alergias e resultados insatisfatórios que geram custos altos de correção.</p>
+      <h2>Como Saber o Valor Real no Studio da Denise</h2>
+      <p>A avaliação é gratuita e os valores são apresentados pessoalmente, com transparência sobre tudo que está incluso. Sem surpresas. Agende pelo WhatsApp (41) 97401-6961 — studio no Batel, Curitiba.</p>
+    `
+  },
+  artC10: {
+    cat: 'Correção & Remoção · Curitiba',
+    title: 'Remoção de Micropigmentação a Laser em Curitiba: Como Funciona',
+    content: `
+      <p>Quando a correção por cobertura não é suficiente — pigmentos muito escuros, tonalidade muito alterada ou área muito saturada — a remoção a laser é o caminho. Saiba como funciona esse processo em Curitiba.</p>
+      <h2>Como o Laser Remove o Pigmento</h2>
+      <p>O laser Q-Switched emite pulsos de luz de alta intensidade que fragmentam as partículas de pigmento na pele. Os fragmentos são então eliminados pelo sistema imunológico ao longo das semanas seguintes a cada sessão.</p>
+      <h2>Quantas Sessões São Necessárias?</h2>
+      <p>Varia conforme a profundidade do pigmento, a saturação da cor e a tonalidade (tons escuros respondem mais rápido). Em média, micropigmentações semi-permanentes levam de 3 a 8 sessões, com intervalo mínimo de 6 a 8 semanas entre elas.</p>
+      <h2>Como é o Procedimento</h2>
+      <p>A área é limpa e protegida. O laser é aplicado em passagens sobre a região. A sensação é de borrachadas rápidas. Após a sessão, a área pode ficar avermelhada e levemente inchada por alguns dias — isso é normal e faz parte do processo.</p>
+      <h2>Remoção a Laser em Curitiba</h2>
+      <p>O studio da Denise de Paula oferece avaliação completa do pigmento antes de indicar o protocolo de remoção. Nem todo caso requer remoção total — às vezes, 2 a 3 sessões de clareamento já permitem uma nova micropigmentação por cima. Agende pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC11: {
+    cat: 'Correção',
+    title: 'Micropigmentação Mal Feita: O Que Fazer Antes de Tentar Corrigir',
+    content: `
+      <p>Perceber que a micropigmentação não ficou como esperado é frustrante. Mas a pressa em corrigir pode piorar a situação. Antes de qualquer ação, há passos importantes a seguir.</p>
+      <h2>Espere a Cicatrização Completa</h2>
+      <p>Nunca avalie o resultado final antes de 30 dias. O pigmento recém-aplicado parece mais intenso, as crostas distorcem o resultado, e o pigmento "assenta" ao longo de 4 a 6 semanas. O que parece errado na primeira semana pode estar perfeito após a cicatrização completa.</p>
+      <h2>Não Aplique Nada Por Conta Própria</h2>
+      <p>Soluções caseiras para "clarear" ou "remover" pigmento — ácidos, esfoliantes agressivos, produtos milagrosos — podem causar infecção, manchas permanentes e piorar significativamente o problema.</p>
+      <h2>Documente com Fotos</h2>
+      <p>Fotografe a área regularmente sob boa iluminação. Essas fotos são valiosas para a especialista que vai avaliar seu caso, pois mostram a evolução e ajudam a entender o pigmento.</p>
+      <h2>Busque uma Especialista em Correção</h2>
+      <p>Nem toda micropigmentadora tem experiência com correções. É uma especialidade dentro da especialidade — exige conhecimento de teoria das cores, técnicas de neutralização e, quando necessário, integração com remoção a laser.</p>
+      <h2>Avaliação Gratuita em Curitiba</h2>
+      <p>No studio da Denise de Paula, no Batel, a avaliação para correção é gratuita. Você sai da consulta com um plano claro e honesto. WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC12: {
+    cat: 'Cuidados & Pós-Procedimento',
+    title: 'Quanto Tempo Leva a Cicatrização da Micropigmentação?',
+    content: `
+      <p>A pergunta mais ouvida no pós-procedimento: "quanto tempo até ver o resultado final?". A cicatrização segue fases previsíveis — mas o tempo real varia de pessoa para pessoa.</p>
+      <h2>Fases da Cicatrização</h2>
+      <p><strong>Dias 1 a 3 — Escurecimento inicial:</strong> O pigmento parece mais escuro e intenso do que o resultado final. A área pode estar levemente avermelhada e sensível. Normal.</p>
+      <p><strong>Dias 4 a 10 — Formação de crostas:</strong> As crostas surgem e a área pode parecer irregular. Não toque, não arranque. As crostas caem sozinhas — levando parte do pigmento superficial junto.</p>
+      <p><strong>Dias 10 a 30 — "Desaparecimento":</strong> Após as crostas caírem, o pigmento pode parecer muito claro, quase apagado. Muitas clientes ficam preocupadas nessa fase — mas é completamente normal. O pigmento está "assentando" nas camadas mais profundas da pele.</p>
+      <p><strong>Dia 30 a 45 — Resultado real:</strong> O pigmento emerge definitivamente. É nesse momento que Denise avalia o resultado e realiza o retoque de avaliação para ajustes finais.</p>
+      <h2>Fatores que Influenciam a Cicatrização</h2>
+      <p>Tipo de pele, idade, sistema imunológico, cuidados no pós-procedimento e uso de medicamentos podem acelerar ou retardar o processo. Siga todas as instruções de pós-procedimento para a cicatrização mais rápida possível.</p>
+    `
+  },
+  artC13: {
+    cat: 'Micropigmentação Labial',
+    title: 'Batom Micropigmentado: Quanto Tempo Dura e Como Prolongar',
+    content: `
+      <p>A micropigmentação labial é muitas vezes chamada de "batom permanente" — mas o termo correto é semi-permanente. Entenda a durabilidade real e o que você pode fazer para prolongar o resultado.</p>
+      <h2>Durabilidade Média</h2>
+      <p>A micropigmentação labial dura em média de 1 a 2 anos. Os lábios têm mais movimento e umidade do que outras áreas micropigmentadas, o que acelera a degradação natural do pigmento.</p>
+      <h2>Fatores que Afetam a Durabilidade</h2>
+      <p><strong>Tipo de pele:</strong> Peles oleosas tendem a degradar o pigmento mais rapidamente.</p>
+      <p><strong>Exposição solar:</strong> O sol é o principal fator de desgaste. Use protetor labial com FPS regularmente.</p>
+      <p><strong>Hidratação dos lábios:</strong> Lábios bem hidratados preservam melhor o pigmento. Use hidratante labial diariamente.</p>
+      <p><strong>Procedimentos estéticos:</strong> Peelings químicos, lasers faciais e procedimentos com ácidos na região labial aceleram a degradação do pigmento.</p>
+      <h2>Como Prolongar o Resultado</h2>
+      <p>✅ Use protetor solar labial todos os dias<br>✅ Hidrate os lábios regularmente<br>✅ Evite peelings e esfoliações agressivas na área<br>✅ Informe sua dermatologista sobre a micropigmentação antes de qualquer procedimento</p>
+      <h2>Retoque em Curitiba</h2>
+      <p>O retoque de manutenção (após 1 a 2 anos) é mais rápido e tem custo menor que o procedimento inicial. Agende com Denise pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC14: {
+    cat: 'Micropigmentação Labial',
+    title: 'Micropigmentação Labial para Lábios Finos e Maduros: Aumenta o Volume?',
+    content: `
+      <p>Uma das perguntas mais frequentes: "a micropigmentação labial deixa os lábios maiores?". A resposta honesta é nuançada — e depende da técnica utilizada.</p>
+      <h2>O Que a Micropigmentação Labial Pode Fazer</h2>
+      <p>A micropigmentação trabalha com pigmento, não com volume físico. O que ela pode fazer é criar a <em>ilusão visual</em> de lábios maiores e mais definidos por meio de técnicas específicas de contorno.</p>
+      <h2>Técnica de Contorno: O Efeito Visual de Volume</h2>
+      <p>A técnica de contorno posiciona o traço ligeiramente além do limite natural do lábio — dentro de margens seguras e naturais — criando a percepção de lábios mais cheios. Combinada com um preenchimento de tom suave, o resultado pode ser bastante significativo visualmente.</p>
+      <h2>O Que Ela Não Faz</h2>
+      <p>A micropigmentação não adiciona volume físico. Para aumento de volume real, o preenchimento com ácido hialurônico é o procedimento adequado. Muitas clientes combinam os dois: preenchimento para volume + micropigmentação para definição e cor duradoura.</p>
+      <h2>Para Lábios Maduros Especificamente</h2>
+      <p>Com o envelhecimento, o contorno labial perde definição e o lábio parece recuar. A micropigmentação é especialmente transformadora nesse caso: redefine o contorno, devolve a cor natural e cria uma impressão de rejuvenescimento significativa.</p>
+      <h2>Avaliação em Curitiba</h2>
+      <p>Denise de Paula avalia cada caso individualmente e mostra o traçado proposto antes de iniciar. Avaliação gratuita — WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC15: {
+    cat: 'Sobrancelhas',
+    title: 'Reconstrução Completa de Sobrancelha com Micropigmentação em Curitiba',
+    content: `
+      <p>A reconstrução completa de sobrancelha é um dos procedimentos mais desafiadores e transformadores da micropigmentação. Quando não há fios ou há pouquíssimos, a micropigmentação recria tudo do zero — e o resultado pode ser extraordinário.</p>
+      <h2>Quando a Reconstrução é Indicada</h2>
+      <p>A reconstrução completa é indicada nos casos de: perda total por alopecia ou doenças autoimunes; ausência congênita de pelos; remoção por depilação excessiva ao longo dos anos; perda por quimioterapia ou radioterapia; e sobrancelhas muito ralas que não respondem a técnicas simples.</p>
+      <h2>Como é o Processo</h2>
+      <p><strong>Mapeamento facial completo:</strong> Denise realiza um mapeamento detalhado, identificando os pontos de início, arco e cauda ideais para o formato do seu rosto.</p>
+      <p><strong>Proposta de desenho:</strong> Um esboço é feito com lápis dermográfico, ajustado até você aprovar completamente.</p>
+      <p><strong>Técnica aplicada:</strong> Para reconstrução completa sem fios, geralmente a técnica sombreada ou híbrida oferece o resultado mais natural e duradouro.</p>
+      <p><strong>Sessões:</strong> Em casos complexos, pode ser necessário mais de uma sessão para o resultado ideal, com intervalos de cicatrização entre elas.</p>
+      <h2>Resultado Esperado</h2>
+      <p>Sobrancelhas que parecem naturais, simétricas e harmonizadas com o rosto. Clientes que passaram por reconstrução descrevem o resultado como "mudança de vida". Agende sua avaliação pelo WhatsApp (41) 97401-6961.</p>
+    `
+  },
+  artC16: {
+    cat: 'Correção & Remoção · Laser',
+    title: 'Remoção a Laser de Micropigmentação: Quantas Sessões São Necessárias?',
+    content: `
+      <p>Uma das primeiras perguntas de quem considera a remoção a laser: "quantas sessões vou precisar?". A resposta honesta: depende de vários fatores — mas vou explicar cada um.</p>
+      <h2>Fatores que Determinam o Número de Sessões</h2>
+      <p><strong>Profundidade do pigmento:</strong> Micropigmentações semi-permanentes têm pigmento em camadas mais superficiais que tatuagens convencionais — geralmente respondem mais rápido ao laser.</p>
+      <p><strong>Tonalidade:</strong> Tons escuros (preto, marrom escuro) absorvem a energia do laser de forma mais eficiente e respondem mais rapidamente. Tons avermelhados, alaranjados e amarelados podem exigir mais sessões.</p>
+      <p><strong>Saturação:</strong> Uma área com muitas camadas de pigmento sobrepostas (retoques ao longo dos anos) precisa de mais sessões.</p>
+      <p><strong>Tipo de pele:</strong> Peles mais claras respondem melhor ao laser.</p>
+      <h2>Média de Sessões para Micropigmentação</h2>
+      <p>Para micropigmentações semi-permanentes (sobrancelhas, labial, olhos), a média é de <strong>3 a 8 sessões</strong>, com intervalo mínimo de 6 a 8 semanas entre cada uma. Em casos mais simples, pode ser possível charelar o suficiente em 2 a 3 sessões para uma nova micropigmentação por cima.</p>
+      <h2>O Intervalo Entre Sessões é Obrigatório</h2>
+      <p>O laser fragmenta o pigmento, mas é o sistema imunológico que o elimina. Esse processo leva semanas. Respeitar o intervalo mínimo entre sessões não é opcional — é o que garante o resultado e a segurança do procedimento.</p>
+      <h2>Avaliação em Curitiba</h2>
+      <p>Antes de iniciar qualquer protocolo de remoção, Denise avalia o pigmento, a pele e propõe um plano realista de tratamento. Avaliação gratuita — WhatsApp (41) 97401-6961.</p>
     `
   }
 };
