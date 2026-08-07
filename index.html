@@ -6,6 +6,7 @@
   <title>Micropigmentação em Curitiba | Denise de Paula</title>
   <meta name="description" content="Micropigmentação natural de sobrancelhas, lábios e olhos no Batel, em Curitiba. Conheça o trabalho de Denise de Paula e agende sua avaliação gratuita.">
   <link rel="canonical" href="https://www.micropigmentacaodenisedp.com.br/">
+  <link rel="preload" as="image" href="fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg" fetchpriority="high">
 
   <!-- Open Graph / WhatsApp Social Card -->
   <meta property="og:type"        content="website">
@@ -372,8 +373,8 @@
             <input type="tel" placeholder="(41) 99999-9999" required>
           </div>
           <div class="form-field">
-            <label>Serviço de interesse</label>
-            <select required>
+            <label for="servico-hero">Serviço de interesse</label>
+            <select id="servico-hero" name="servico" required>
               <option value="" disabled selected>Selecione um serviço</option>
               <option>Micropigmentação de Sobrancelhas</option>
               <option>Micropigmentação Labial</option>
@@ -392,10 +393,8 @@
       <!-- Col 3: Foto da Denise (desktop) -->
       <div class="hero-photo-col fade-up" style="transition-delay:.2s">
         <div class="hero-photo-frame" id="heroPhotoFrame">
-          <div class="hero-photo-placeholder" id="heroPhotoPlaceholder">
-            <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(184,150,90,.5);letter-spacing:1px">foto da Denise</span>
-          </div>
-          <img id="heroPhotoImg" src="" alt="Denise de Paula" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <div class="hero-photo-placeholder" id="heroPhotoPlaceholder" style="display:none"></div>
+          <img id="heroPhotoImg" src="fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg" alt="Denise de Paula — Micropigmentadora em Curitiba" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div style="border-left:1px solid rgba(184,150,90,.3);padding-left:20px;margin-top:24px">
           <p style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
@@ -405,7 +404,7 @@
 
       <!-- Foto da Denise mobile (oculta no desktop) -->
       <div class="hero-mobile-photo fade-up">
-        <img src="fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg" alt="Denise de Paula" id="heroPhotoMobile">
+        <img src="fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg" alt="Denise de Paula — Micropigmentadora em Curitiba" id="heroPhotoMobile" fetchpriority="high">
         <div style="text-align:center;margin-top:12px">
           <p style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
           <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,.6)">Fundadora · Pioneira no Brasil</p>
@@ -1027,8 +1026,8 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="tel" placeholder="(41) 99999-9999" required>
         </div>
         <div class="form-field">
-          <label>Serviço de Interesse</label>
-          <select>
+          <label for="servico-contato">Serviço de Interesse</label>
+          <select id="servico-contato" name="servico">
             <option value="" disabled selected>Selecione um serviço</option>
             <option>Micropigmentação de Sobrancelhas</option>
             <option>Micropigmentação Labial</option>
