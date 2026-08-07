@@ -106,8 +106,12 @@ document.getElementById('testimonialsTrack')?.addEventListener('mouseleave', () 
   autoPlay = setInterval(nextTestimonial, 5500);
 });
 
-window.addEventListener('resize', updateCarousel);
-updateCarousel();
+let _carouselRAF;
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(_carouselRAF);
+  _carouselRAF = requestAnimationFrame(updateCarousel);
+});
+requestAnimationFrame(updateCarousel);
 
 // ── Load testimonials from admin ────────────────────────────
 function loadTestimonials() {
