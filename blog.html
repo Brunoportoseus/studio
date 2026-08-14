@@ -1284,6 +1284,8 @@ nav a:hover { color: var(--gold); }
       transition: background .2s;
     }
     .blog-post-item:hover { background: var(--cream-dark); }
+    /* Blog cards start visible — fade-up is bonus animation only */
+    .blog-post-item.fade-up { opacity: 1; transform: none; }
 
     .blog-post-thumb {
       aspect-ratio: 4/3;
@@ -2656,6 +2658,13 @@ function searchPosts() {
   });
 }
 
+
+// Fallback: ensure blog post items are visible even if IntersectionObserver misses them
+window.addEventListener('load', function() {
+  document.querySelectorAll('.blog-post-item.fade-up').forEach(function(el) {
+    el.classList.add('visible');
+  });
+});
 document.getElementById('searchInput')?.addEventListener('keydown', e => {
   if (e.key === 'Enter') searchPosts();
 });
