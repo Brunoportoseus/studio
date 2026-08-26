@@ -1,1 +1,7 @@
 /studio/*  /:splat  301
+
+# Redirecionamentos de URLs legadas (site antigo) para a estrutura atual.
+# Regras mais específicas primeiro.
+/blog/publicacao/*   /blog.html   301
+/blog                /blog.html   301
+/labial.html         /            301
