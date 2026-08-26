@@ -1,1 +1,8 @@
 /studio/*  /:splat  301
+
+# Redirecionamentos de URLs legadas (site antigo) para a estrutura atual.
+# O Cloudflare Pages ja serve URLs limpas (/blog em vez de /blog.html) e
+# redireciona /blog.html -> /blog automaticamente; por isso NAO redirecionamos
+# /blog -> /blog.html (isso criaria um loop de redirecionamento).
+/blog/publicacao/*   /blog   301
+/labial.html         /       301
