@@ -5,4 +5,17 @@
 # redireciona /blog.html -> /blog automaticamente; por isso NAO redirecionamos
 # /blog -> /blog.html (isso criaria um loop de redirecionamento).
 /blog/publicacao/*   /blog   301
+
+# URLs com .html rastreadas pelo Google (aparecem em "Página com redirecionamento")
+/index.html          /       301
 /labial.html         /       301
+/sobrancelhas.html   /       301
+/admin/index.html    /       301
+/admin               /       301
+
+# URLs de serviço detectadas pelo Google mas sem página própria (site é single-page)
+/labial              /       301
+/olhos               /       301
+/remocao             /       301
+/sobrancelhas        /       301
+/correcao            /       301
