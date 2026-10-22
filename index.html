@@ -24,6 +24,8 @@
   <meta name="twitter:description" content="35 anos transformando rostos. Sobrancelhas, lábios e olhos. Agende sua avaliação gratuita.">
   <meta name="twitter:image"       content="https://www.micropigmentacaodenisedp.com.br/fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg">
 
+    <link rel="preload" href="/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 
   <script type="application/ld+json">
@@ -297,7 +299,7 @@
       <a href="/" class="logo">
         <div class="logo-icon" id="logoIconWrap">
           <span id="logoIconText" style="display:none">DP</span>
-          <img id="logoIconImg" src="fotos/micropigmentacaocuritiba_branca.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;padding:4px;">
+          <img id="logoIconImg" src="fotos/micropigmentacaocuritiba-branca.webp" width="94" height="104" alt="Logo" style="width:100%;height:100%;object-fit:contain;padding:4px;">
         </div>
         <div class="logo-text">
           <span class="logo-name">Denise de Paula</span>
@@ -344,8 +346,8 @@
       <div class="hero-left fade-up">
         <div class="hero-eyebrow">Curitiba · BATEL · Pioneira no Brasil</div>
         <h1 class="hero-title">
-          Micropigmentação natural<br>
-          <em>em Curitiba com<br>Denise de Paula</em>
+          Micropigmentação natural <br>
+          <em>em Curitiba com <br>Denise de Paula</em>
         </h1>
         <p class="hero-desc">
           Há mais de 35 anos, Denise de Paula realiza procedimentos personalizados para sobrancelhas, lábios e olhos,
@@ -373,7 +375,7 @@
           </div>
           <div class="form-field">
             <label>Serviço de interesse</label>
-            <select required>
+            <select required aria-label="Serviço de interesse">
               <option value="" disabled selected>Selecione um serviço</option>
               <option>Micropigmentação de Sobrancelhas</option>
               <option>Micropigmentação Labial</option>
@@ -395,19 +397,19 @@
           <div class="hero-photo-placeholder" id="heroPhotoPlaceholder">
             <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(184,150,90,.5);letter-spacing:1px">foto da Denise</span>
           </div>
-          <img id="heroPhotoImg" src="" alt="Denise de Paula" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img id="heroPhotoImg" alt="Denise de Paula" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div style="border-left:1px solid rgba(184,150,90,.3);padding-left:20px;margin-top:24px">
-          <p style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
+          <p style="font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
           <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5)">Fundadora · Pioneira no Brasil</p>
         </div>
       </div>
 
       <!-- Foto da Denise mobile (oculta no desktop) -->
-      <div class="hero-mobile-photo fade-up">
-        <img src="fotos/WhatsApp%20Image%202026-01-11%20at%2021.39.33.jpeg" alt="Denise de Paula" id="heroPhotoMobile">
+      <div class="hero-mobile-photo">
+        <img src="fotos/denise-de-paula-micropigmentadora-curitiba-800.webp" srcset="fotos/denise-de-paula-micropigmentadora-curitiba-400.webp 400w, fotos/denise-de-paula-micropigmentadora-curitiba-800.webp 800w" sizes="300px" width="800" height="1068" fetchpriority="high" decoding="async" alt="Denise de Paula" id="heroPhotoMobile">
         <div style="text-align:center;margin-top:12px">
-          <p style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
+          <p style="font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Denise de Paula</p>
           <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,.6)">Fundadora · Pioneira no Brasil</p>
         </div>
       </div>
@@ -432,27 +434,27 @@
     </div>
     <div id="vitrineGrid" class="vitrine-grid">
       <div class="vitrine-item fade-up" onclick="openLightbox(0)">
-        <img src="fotos/micropigmentacao.sobrancelha.jpg" alt="Micropigmentação de sobrancelhas fio a fio em Curitiba — resultado natural por Denise de Paula" loading="lazy">
+        <img src="fotos/micropigmentacao-sobrancelha.webp" width="600" height="800" alt="Micropigmentação de sobrancelhas fio a fio em Curitiba — resultado natural por Denise de Paula" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Sobrancelhas</span></div>
       </div>
       <div class="vitrine-item fade-up" style="transition-delay:.06s" onclick="openLightbox(1)">
-        <img src="fotos/micropigmentacao.sobrancelha.1.jpg" alt="Sobrancelhas micropigmentadas com técnica sombreada — design personalizado no Batel Curitiba" loading="lazy">
+        <img src="fotos/micropigmentacao-sobrancelha-1.webp" width="600" height="800" alt="Sobrancelhas micropigmentadas com técnica sombreada — design personalizado no Batel Curitiba" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Sobrancelhas</span></div>
       </div>
       <div class="vitrine-item fade-up" style="transition-delay:.12s" onclick="openLightbox(2)">
-        <img src="fotos/micropigmentacao.labios_.jpg" alt="Micropigmentação labial efeito aquarela — lábios definidos e naturais em Curitiba" loading="lazy">
+        <img src="fotos/micropigmentacao-labios.webp" width="600" height="800" alt="Micropigmentação labial efeito aquarela — lábios definidos e naturais em Curitiba" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Lábios</span></div>
       </div>
       <div class="vitrine-item fade-up" style="transition-delay:.18s" onclick="openLightbox(3)">
-        <img src="fotos/micropigmentacao.labios.2.jpg" alt="Contorno labial micropigmentado com pigmento importado — resultado duradouro Curitiba" loading="lazy">
+        <img src="fotos/micropigmentacao-labios-2.webp" width="600" height="800" alt="Contorno labial micropigmentado com pigmento importado — resultado duradouro Curitiba" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Lábios</span></div>
       </div>
       <div class="vitrine-item fade-up" style="transition-delay:.24s" onclick="openLightbox(4)">
-        <img src="fotos/micropigmentacaoavaliacao.jpg" alt="Avaliação gratuita de micropigmentação com Denise de Paula — studio no Batel Curitiba" loading="lazy">
+        <img src="fotos/micropigmentacaoavaliacao.webp" width="600" height="800" alt="Avaliação gratuita de micropigmentação com Denise de Paula — studio no Batel Curitiba" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Avaliação</span></div>
       </div>
       <div class="vitrine-item fade-up" style="transition-delay:.30s" onclick="openLightbox(5)">
-        <img src="fotos/micropigmentacao.correcao.jpg" alt="Correção de micropigmentação antiga mal feita — recobrimento e renovação em Curitiba" loading="lazy">
+        <img src="fotos/micropigmentacao-correcao.webp" width="600" height="800" alt="Correção de micropigmentação antiga mal feita — recobrimento e renovação em Curitiba" loading="lazy">
         <div class="vitrine-overlay"><span class="vitrine-caption">Correção</span></div>
       </div>
     </div>
@@ -468,7 +470,7 @@
 
       <div class="authority-text fade-up">
         <span class="label">Autoridade &amp; Experiência</span>
-        <h2 class="section-title">Quem é a Micropigmentadora<br>Denise de Paula em Curitiba?</h2>
+        <h2 class="section-title">Quem é a Micropigmentadora <br>Denise de Paula em Curitiba?</h2>
         <div class="divider"></div>
         <p class="section-desc">
           Denise de Paula atua em micropigmentação há mais de 35 anos, com formações em técnicas avançadas de sobrancelhas, lábios e delineado de olhos, e atendimentos realizados no Brasil, Argentina e outros países.
@@ -489,19 +491,19 @@
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-number">35+</div>
-            <div class="stat-label">Anos de<br>Experiência</div>
+            <div class="stat-label">Anos de <br>Experiência</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">10.000+</div>
-            <div class="stat-label">Clientes<br>Atendidas</div>
+            <div class="stat-label">Clientes <br>Atendidas</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">3</div>
-            <div class="stat-label">Países com<br>Atendimentos</div>
+            <div class="stat-label">Países com <br>Atendimentos</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">&#8470;1</div>
-            <div class="stat-label">Pioneira<br>no Brasil</div>
+            <div class="stat-label">Pioneira <br>no Brasil</div>
           </div>
         </div>
       </div>
@@ -517,7 +519,7 @@
   <div class="container">
     <div class="services-header fade-up">
       <span class="label">Nossas Especialidades</span>
-      <h2 class="section-title">Serviços de Micropigmentação<br>em Curitiba — Batel</h2>
+      <h2 class="section-title">Serviços de Micropigmentação <br>em Curitiba — Batel</h2>
       <div class="divider center"></div>
       <p class="section-desc">
         Sobrancelhas, lábios, delineado de olhos, correção e remoção a laser. Cada procedimento é realizado com pigmentos de alta fixação, técnica personalizada e foco total no resultado natural e duradouro.
@@ -620,7 +622,7 @@
   <div class="container">
     <div class="fade-up">
       <span class="label">Arte em Detalhes</span>
-      <h2 class="section-title">Antes e Depois — Resultados Reais<br>de Micropigmentação em Curitiba</h2>
+      <h2 class="section-title">Antes e Depois — Resultados Reais <br>de Micropigmentação em Curitiba</h2>
       <div class="divider"></div>
     </div>
 
@@ -634,7 +636,7 @@
     <div id="sobrancelhas-gallery" class="gallery-panel">
       <div id="sobrancelhas-grid" class="gallery-grid">
         <div class="gallery-item fade-up">
-          <img src="fotos/SobrancelhaAnteseDepois.jpg" alt="Micropigmentação de sobrancelhas antes e depois — transformação fio a fio em Curitiba por Denise de Paula" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="fotos/sobrancelha-antes-e-depois.webp" width="390" height="488" alt="Micropigmentação de sobrancelhas antes e depois — transformação fio a fio em Curitiba por Denise de Paula" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div class="gallery-caption">Sobrancelhas — Antes e Depois</div>
         </div>
       </div>
@@ -644,11 +646,11 @@
     <div id="labios-gallery" class="gallery-panel" style="display:none">
       <div id="labios-grid" class="gallery-grid">
         <div class="gallery-item fade-up">
-          <img src="fotos/L%C3%A1biosAnteseDepois.jpg" alt="Micropigmentação labial antes e depois — contorno e cor natural em Curitiba por Denise de Paula" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="fotos/labios-antes-e-depois.webp" width="390" height="488" alt="Micropigmentação labial antes e depois — contorno e cor natural em Curitiba por Denise de Paula" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div class="gallery-caption">Lábios — Antes e Depois</div>
         </div>
         <div class="gallery-item fade-up" style="transition-delay:.05s">
-          <img src="fotos/L%C3%A1bios2AnteseDepois.jpg" alt="Resultado micropigmentação labial efeito aquarela antes e depois — studio Denise de Paula Curitiba" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="fotos/labios-2-antes-e-depois.webp" width="390" height="488" alt="Resultado micropigmentação labial efeito aquarela antes e depois — studio Denise de Paula Curitiba" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div class="gallery-caption">Lábios — Antes e Depois</div>
         </div>
       </div>
@@ -676,7 +678,7 @@
   <div class="container">
     <div class="fade-up" style="text-align:center;max-width:580px;margin:0 auto 72px">
       <span class="label">Vozes de Confiança</span>
-      <h2 class="section-title white">Nossa Força É<br>Sua Satisfação.</h2>
+      <h2 class="section-title white">Nossa Força É <br>Sua Satisfação.</h2>
       <div class="divider center" style="background:var(--gold)"></div>
     </div>
 
@@ -758,7 +760,7 @@
 ══════════════════════════════════════════ -->
 <style>
 .faq-tabs { display:flex; gap:0; justify-content:center; flex-wrap:wrap; margin-bottom:48px; border-bottom:1px solid #d8cdbf; }
-.faq-tab { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:#6b7280; padding:16px 32px; background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; transition:all .2s; }
+.faq-tab { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:#5b6d82; padding:16px 32px; background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; transition:all .2s; }
 .faq-tab.active { color:#0c1c2e; border-bottom-color:#b8965a; }
 .faq-tab:hover:not(.active) { color:#0c1c2e; }
 .faq-panel { display:none; max-width:800px; margin:0 auto; }
@@ -771,14 +773,14 @@
 .faq-item details summary .faq-plus { color:#b8965a; font-size:20px; flex-shrink:0; line-height:1; transition:transform .2s; }
 .faq-item details[open] summary .faq-plus { transform:rotate(45deg); }
 .faq-item details p { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:300; color:#4a5568; line-height:1.85; padding-bottom:22px; margin:0; }
-.faq-count { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#b8965a; background:rgba(184,150,90,.1); border:1px solid rgba(184,150,90,.2); padding:4px 12px; border-radius:2px; margin-left:8px; white-space:nowrap; }
+.faq-count { font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#85652b; background:rgba(184,150,90,.1); border:1px solid rgba(184,150,90,.2); padding:4px 12px; border-radius:2px; margin-left:8px; white-space:nowrap; }
 </style>
 
 <section id="faq" class="section" style="background:#f9f6f1">
   <div class="container">
     <div class="fade-up" style="text-align:center;max-width:700px;margin:0 auto 56px">
       <span class="label">Tire Suas Dúvidas</span>
-      <h2 class="section-title">Perguntas Frequentes sobre<br>Micropigmentação em Curitiba</h2>
+      <h2 class="section-title">Perguntas Frequentes sobre <br>Micropigmentação em Curitiba</h2>
       <div class="divider center"></div>
       <p class="section-desc">51 respostas honestas e detalhadas sobre micropigmentação labial, sobrancelhas e segurança — com a voz de quem tem 35 anos de experiência em Curitiba.</p>
     </div>
@@ -879,7 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:16px">
       <div>
         <span class="label">Conteúdo &amp; Educação</span>
-        <h2 class="section-title">Conhecimento que<br>Transforma</h2>
+        <h2 class="section-title">Conhecimento que <br>Transforma</h2>
       </div>
       <a href="/blog" class="btn btn-outline" style="flex-shrink:0">Ver Todos os Artigos</a>
     </div>
@@ -935,7 +937,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Info Panel -->
     <div class="lead-form-info fade-up">
       <span class="label">Inicie Sua Transformação</span>
-      <h2 class="section-title white" style="margin-bottom:20px">Agende Sua Avaliação<br>Gratuita Hoje.</h2>
+      <h2 class="section-title white" style="margin-bottom:20px">Agende Sua Avaliação <br>Gratuita Hoje.</h2>
       <div class="divider" style="background:var(--gold)"></div>
       <p class="section-desc white">
         Em uma consulta sem compromisso, Denise avalia suas necessidades, explica o procedimento ideal e tira todas as suas dúvidas.
@@ -1001,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="form-field">
           <label>Serviço de Interesse</label>
-          <select>
+          <select aria-label="Serviço de interesse">
             <option value="" disabled selected>Selecione um serviço</option>
             <option>Micropigmentação de Sobrancelhas</option>
             <option>Micropigmentação Labial</option>
@@ -1022,7 +1024,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Enviar Mensagem →
           </button>
         </div>
-        <p style="font-size:11px;color:#8a9bb0;line-height:1.8;margin-top:16px">
+        <p style="font-size:12px;color:#5b6d82;line-height:1.8;margin-top:16px">
           Seus dados são protegidos e nunca serão compartilhados. Retornamos em até 24h.
         </p>
       </form>
@@ -1086,7 +1088,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="admin/index.html" rel="nofollow noindex" style="opacity:0.3;font-size:10px">Admin</a></li>
         </ul>
       </div>
 
@@ -1098,15 +1099,15 @@ document.addEventListener('DOMContentLoaded', function() {
             contato@micropigmentacaodenisedp.com.br
           </a>
         </p>
-        <p>Rua Buenos Aires, 457<br>Curitiba 80250-070 — PR, BR</p>
-        <p style="color:rgba(255,255,255,.3);font-size:12px;margin-top:4px">BATEL</p>
+        <p>Rua Buenos Aires, 457 <br>Curitiba 80250-070 — PR, BR</p>
+        <p style="color:#8a9bb0;font-size:12px;margin-top:4px">BATEL</p>
 
         <div class="footer-whatsapp-box">
           <h5>WhatsApp de Atendimento</h5>
           <a href="https://wa.me/5541974016961" target="_blank">(41) 97401-6961</a>
           <a href="https://wa.me/5541974016961?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita."
              class="btn btn-gold" target="_blank"
-             style="margin-top:16px;font-size:10px;padding:12px 20px;display:block;text-align:center;text-decoration:none">
+             style="margin-top:16px;font-size:12px;padding:12px 20px;display:block;text-align:center;text-decoration:none">
             Iniciar Conversa →
           </a>
         </div>
@@ -1152,8 +1153,8 @@ document.addEventListener('DOMContentLoaded', function() {
       </p>
     </div>
     <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap">
-      <button onclick="lgpdDecline()" style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);background:none;border:1px solid rgba(255,255,255,.2);padding:10px 20px;cursor:pointer;transition:all .2s">Recusar</button>
-      <button onclick="lgpdAccept()" style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0c1c2e;background:#b8965a;border:1px solid #b8965a;padding:10px 24px;cursor:pointer;transition:all .2s">Aceitar Cookies</button>
+      <button onclick="lgpdDecline()" style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);background:none;border:1px solid rgba(255,255,255,.2);padding:10px 20px;cursor:pointer;transition:all .2s">Recusar</button>
+      <button onclick="lgpdAccept()" style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0c1c2e;background:#b8965a;border:1px solid #b8965a;padding:10px 24px;cursor:pointer;transition:all .2s">Aceitar Cookies</button>
     </div>
   </div>
 </div>

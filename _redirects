@@ -6,11 +6,15 @@
 # /blog -> /blog.html (isso criaria um loop de redirecionamento).
 /blog/publicacao/*   /blog   301
 
-# URLs com .html rastreadas pelo Google (aparecem em "Página com redirecionamento")
+# URLs .html antigas: o Cloudflare Pages ja redireciona /pagina.html -> /pagina
+# (301, um salto) para todas as paginas do projeto. NAO criar regras
+# /pagina.html -> / : o Google trata redirecionamento para a home como soft 404.
 /index.html          /       301
-/labial.html         /       301
-/sobrancelhas.html   /       301
-/admin/index.html    /       301
-/admin               /       301
 
-# Páginas de serviço agora existem como HTML dedicado — sem redirect necessário
+# Paginas antigas que davam 404
+/marco-moura         /remocao  301
+# Provisorio ate existir a pagina /denise-de-paula
+/denise-de-paula     /       301
+
+# /admin/index.html -> /admin/ e /admin -> /admin/ ficam por conta do Pages
+# (nao redirecionar para a home). /cgi-sys/suspendedpage.cgi deve seguir em 404.
